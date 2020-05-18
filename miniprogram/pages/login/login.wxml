@@ -1,0 +1,15 @@
+<!--pages/denglu/denglu.wxml-->
+<view class="shanghuaxian"></view>
+<view>
+  <input type="text" placeholder="请输入账号" bindinput="feikong1" bindfocus="submit1" bindblur="submit1"></input>
+  <input password="true" placeholder="请输入密码" bindinput="feikong2" bindfocus="submit1" bindblur="submit1"></input>
+  <navigator url="../register/register"><text>注册新账号</text></navigator>
+</view>
+<view>
+
+  <button form-type="submit" bindtap="a1" disabled="{{jump}}">登录</button>
+
+</view>
+<view>
+<text style="font-size:30rpx">{{meg}}</text>
+</view>

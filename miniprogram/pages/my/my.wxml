@@ -1,0 +1,103 @@
+
+<view class="user_info_warp">
+  <view class="user_img_wrap">
+    <image class="user_bg" src="{{item.USER_PICTRUE?item.USER_PICTRUE:'https://pics.images.ac.cn/image/5ea821486e1aa.html'}}"></image>
+  </view>
+  <view class="user_info">
+    <image class="user_icon" src="{{item.USER_PICTRUE?item.USER_PICTRUE:'https://pics.images.ac.cn/image/5ea821486e1aa.html'}}"> </image>
+    <view class="user_name">{{user_info[0].USER_NAME?user_info[0].USER_NAME:name}}</view>
+  </view>
+</view>
+<block wx:if="{{a.length==1}}">
+<view class="user_content">
+  <view class="user_main">
+    <view class="history_warp">
+        <navigator url="../my_goods/my_goods">
+          <view class="history_img">
+            <view class="iconfont icon-wodeshangpin"></view>
+          </view>
+          <view class="history_name">我的商品</view>
+        </navigator>
+        <navigator>
+          <view class="history_img">
+            <view class="iconfont icon-lishiliulan"></view>
+          </view>
+          <view class="history_name">历史浏览</view>
+        </navigator>
+        <navigator>
+          <view class="history_img">
+            <view class="iconfont icon-kefu"></view>
+          </view>
+          <view class="history_name">客服</view>
+        </navigator>
+        <navigator url="../setting/setting">
+          <view class="history_img">
+            <view class="iconfont icon-shezhi"></view>
+          </view>
+          <view class="history_name">设置</view>
+        </navigator>
+        <!-- 聊天室 -->
+        <navigator url="../chatfriend/chatfriend">
+          <view class="history_img">
+            <view class="iconfont icon-shezhi"></view>
+          </view>
+          <view class="history_name">聊天</view>
+        </navigator>
+    </view>
+  </view>
+</view>
+</block>
+<block wx:else>
+  <view class="user_content">
+  <view class="user_main">
+    <view class="history_warp">
+        <navigator url="../my_goods/my_goods">
+          <view class="history_img">
+            <view class="iconfont icon-wodeshangpin"></view>
+          </view>
+          <view class="history_name">我的商品</view>
+        </navigator>
+        <navigator>
+          <view class="history_img">
+            <view class="iconfont icon-lishiliulan"></view>
+          </view>
+          <view class="history_name">历史浏览</view>
+        </navigator>
+        <navigator>
+          <view class="history_img">
+            <view class="iconfont icon-kefu"></view>
+          </view>
+          <view class="history_name">用户咨询</view>
+        </navigator>
+        <navigator url="../setting/setting">
+          <view class="history_img">
+            <view class="iconfont icon-shezhi"></view>
+          </view>
+          <view class="history_name">设置</view>
+        </navigator>
+                <!-- 聊天室 -->
+        <navigator url="../chatfriend/chatfriend">
+          <view class="history_img">
+            <view class="iconfont icon-shezhi"></view>
+          </view>
+          <view class="history_name">聊天</view>
+        </navigator>
+    </view>
+    <view class="history_warp">
+      <navigator url="../setting/setting">
+          <view class="history_img">
+            <view class="iconfont icon-xiajia"></view>
+          </view>
+          <view class="history_name">下架用户商品</view>
+        </navigator>
+        <navigator url="../Cancellation/Cancellation">
+          <view class="history_img">
+            <view class="iconfont icon-zhuxiaoyonghu"></view>
+          </view>
+          <view class="history_name">注销用户账户</view>
+        </navigator>
+    </view>
+  </view>
+</view>
+
+</block>

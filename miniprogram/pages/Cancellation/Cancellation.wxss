@@ -1,0 +1,30 @@
+page{
+  background-color: white;
+}
+
+view{
+ 
+}
+
+.box1{
+  margin: 50rpx;
+  display: flex;
+  
+}
+
+.box1 input{
+  width: 100%;
+  font-size: 35rpx;
+  background-color: rgb(245,245,245);
+  height: 80rpx;
+}
+
+.box2{
+
+  margin-top: 100rpx;
+}
+
+.box2 button{
+  background-color: rgb(50, 125, 207);
+  color: white;
+}

@@ -1,0 +1,7 @@
+
+<view class="box1">
+  <input placeholder="注销的账号" bindinput="a1"></input>
+</view>
+<view class="box2">
+  <button bindtap="cancellation">注销账号</button>
+</view>

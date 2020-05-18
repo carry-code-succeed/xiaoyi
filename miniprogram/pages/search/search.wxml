@@ -1,0 +1,37 @@
+<!--最外层循环-->
+<view class="box1">
+  <!--搜索框部分-->
+  <view class="box2"> 
+    <input type="text" placeholder="  请输入关键词" bindblur="searchInput" value="{{input_value}}"></input>
+    <navigator url="../buy/buy?search_word={{searchValue}}" open-type="reLaunch">
+      <icon type="search" color="white" bindtap="search"></icon>
+    </navigator>
+  </view>
+  <!--热门搜索部分-->
+  <view class="box3">
+    <view class="box6">
+      热门搜索
+    </view>
+    <!--热门搜索属性部分-->
+    <view class="box4" >
+      <button wx:for="{{shopList}}" wx:key="id" bindtap="hotSearch" data-option="{{item.name}}">{{item.name}}</button>
+      
+    </view>
+  </view>
+  <!--搜索历史部分-->
+  <view class="box7">
+    <view>
+      <view class="box6" >
+        搜索历史
+        <text class="box5" bindtap="emptyHistory">清除全部</text>
+      
+      </view>
+    </view>
+    <!--搜索历史-->
+    <view class="box8">
+      <view wx:for="{{searchHistory}}" wx:key="id" bindtap="hotSearch" class="box9" data-option="{{item.name}}">
+      {{item.name}}</view>
+    </view>
+  </view>
+</view>
+

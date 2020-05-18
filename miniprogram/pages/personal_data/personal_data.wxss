@@ -1,0 +1,52 @@
+.user_info_warp{
+  height: 45vh;
+  background-color: #027DD5;
+  overflow: hidden;
+}
+.user_img_wrap{
+  position: relative;
+  
+}
+.user_bg{
+  width: 100%;
+  height: 50vh;
+  filter: blur(10rpx);
+}
+.user_info{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 15%;
+  text-align: center;
+}
+.user_icon{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+.user_name{
+  color: white;
+  margin-top: 40rpx;
+  font-size: 40rpx;
+}
+.box1{
+  background-color: white;
+}
+
+.box2{
+  flex: 1;
+  margin: 20rpx;
+  border-bottom: 1px solid rgb(245, 245, 245);
+  font-size: 35rpx;
+  padding-top: 20rpx;
+}
+
+.box2 input{
+  float: right;
+  color: gray;
+  font-size: 35rpx;
+}
+.box3 button{
+  background-color: rgb(50,125,207 );
+  color: white;
+}

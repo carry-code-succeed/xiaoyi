@@ -1,0 +1,76 @@
+{
+ 
+    "pages": [
+        
+        "pages/my/my",
+        "pages/login/login",
+        "pages/home/home",
+        "pages/buy/buy",
+        "pages/sell/sell",
+        "pages/index/index",
+        "pages/goods/goods",
+        "pages/search/search",
+        "pages/register/register",
+        "pages/chatfriend/chatfriend",
+        "pages/my_goods/my_goods",
+        
+        
+        "pages/Cancellation/Cancellation",
+        "pages/Change_Password/Change_Password",
+        "pages/personal_data/personal_data",
+        "pages/setting/setting",
+       
+        "pages/im/im",
+        
+        "pages/userConsole/userConsole",
+        "pages/storageConsole/storageConsole",
+        "pages/databaseGuide/databaseGuide",
+        "pages/addFunction/addFunction",
+        "pages/deployFunctions/deployFunctions",
+        "pages/chooseLib/chooseLib",
+        "pages/openapi/openapi",
+        "pages/openapi/serverapi/serverapi",
+        "pages/openapi/callback/callback",
+        "pages/openapi/cloudid/cloudid",
+        
+        "pages/im/room/room",
+        "pages/demo/index"
+    ],
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "text": "首页",
+                "iconPath": "images/a2.jpg",
+                "selectedIconPath": "images/a1.jpg"
+            },
+            {
+                "pagePath": "pages/buy/buy",
+                "text": "我要买",
+                "iconPath": "images/b2.jpg",
+                "selectedIconPath": "images/b1.jpg"
+            },
+            {
+                "pagePath": "pages/sell/sell",
+                "text": "我要卖",
+                "iconPath": "images/c2.jpg",
+                "selectedIconPath": "images/c1.jpg"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "我的",
+                "iconPath": "images/d2.jpg",
+                "selectedIconPath": "images/d1.jpg"
+            }
+        ]
+    },
+    "window": {
+        "backgroundColor": "#F6F6F6",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#027DD5",
+        "navigationBarTitleText": "校易",
+        "navigationBarTextStyle": "black"
+    },
+    "sitemapLocation": "sitemap.json",
+    "style": "v2"
+}

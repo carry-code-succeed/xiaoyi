@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "Tabs":"../../components/Tabs/Tabs"
+  },
+  "navigationBarTitleText": "我要买",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+
+}

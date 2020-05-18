@@ -1,0 +1,12 @@
+
+<view class="box1">
+  <navigator url="../personal_data/personal_data">
+    <view class="box2">个人资料</view>
+  </navigator>
+  <navigator url="../Change_Password/Change_Password">
+    <view class="box2">修改密码</view>
+  </navigator>
+</view>
+<view class="box3">
+  <navigator url="../login/login"><button>退出登录</button></navigator>
+</view>

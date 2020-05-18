@@ -1,0 +1,43 @@
+<swiper autoplay circular indicator-dots="true">
+  <swiper-item>
+    <image src="{{goods_detail[0].COMMODITY_PICTURE?goods_detail[0].COMMODITY_PICTURE:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588344272301&di=b6df57edd39870e062d360d293150cde&imgtype=0&src=http%3A%2F%2Fwww.qianyisou.com%2FContent%2FImages%2Fmbno_img.jpg'}}" 
+    mode="aspectFit"></image>
+  </swiper-item>
+  
+</swiper>
+<view>                                                                                                                                                                                                                                                                                                                                            
+  <view class="goods_price">
+    {{goods_detail[0].COMMODITY_PRICE}}
+  </view>
+  <view class="goods_title">
+    商品标题：{{goods_detail[0].COMMODITY_NAME}}
+  </view>
+</view>
+<view class="seller">
+  <view class="seller_img">
+    <image src="https://pics.images.ac.cn/image/5ea821486e1aa.html"></image>
+  </view>
+  <view class="seller_name">
+    {{sell_id}}
+  </view>
+  <view class="seller_button">
+    <navigator>他在卖什么</navigator>
+  </view>
+</view>
+<view class="goods">
+  <view class="goods_title">
+    商品信息
+  </view>
+  <view class="goods_introduce">
+    {{goods_detail[0].COMMODITY_INFO}}
+  </view>
+</view>
+<view class="tool">
+  <view class="iconfont icon-maijia"></view>
+  <view class="tool_name">卖家</view>
+
+  <button bindtap="go" data-id="chat1" >私聊卖家</button>
+
+ 
+
+</view>

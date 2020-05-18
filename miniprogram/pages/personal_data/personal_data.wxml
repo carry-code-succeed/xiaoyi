@@ -1,0 +1,21 @@
+<view class="user_info_warp">
+  <view class="user_img_wrap">
+    <image class="user_bg" src="https://pics.images.ac.cn/image/5ea821486e1aa.html"></image>
+  </view>
+  <view class="user_info">
+    <image class="user_icon" src="https://pics.images.ac.cn/image/5ea821486e1aa.html"> </image>
+    <view class="user_name">点击更换头像</view>
+  </view>
+</view>
+<view class="box1">
+  <view class="box2">昵称:<input placeholder="{{a}}" bindblur="change_name"></input></view>
+  <view class="box2">性别:<input placeholder="{{a}}"></input></view>
+  <view class="box2">手机号:<input placeholder="{{a}}"></input></view>
+  <view class="box2">QQ号:<input placeholder="{{a}}"></input></view>
+  <view class="box2">专业:<input placeholder="{{a}}"></input></view>
+  <view class="box2">年级:<input placeholder="{{a}}"></input></view>
+</view>
+<view class="box3">
+  <button>提交</button>
+</view>
+

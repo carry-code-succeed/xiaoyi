@@ -1,0 +1,13 @@
+<!--pages/chatfriend/chatfriend.wxml-->
+<view class="uploader">
+  <view class="uploader-text">
+    <button bindtap="refreshchat">聊天列表</button>
+  </view>
+</view>
+<view class='a' wx:for="{{groupId}}"><!--wx:for是微信数据绑定的一种方式，该数组有多少数据就显示多少个view-->
+    <!--index为每个数据对应的下标-->
+    <view >聊天室{{index+1}}
+    <button bindtap="go" data-id="{{item}}">私聊买家</button>
+    </view>
+
+</view>

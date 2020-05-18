@@ -1,0 +1,29 @@
+.shanghuaxian{
+  border-top: 1px solid gray;
+}
+page{
+  background-color: white;
+}
+view{
+  padding: 50rpx;
+  
+}
+view input{
+  margin: 30rpx;
+  margin-bottom: 60rpx;
+  padding: 10rpx;
+  background-color: rgb(245, 245, 245);
+}
+view text{
+  float: right;
+  font-size: 25rpx;
+  margin-right: 30rpx;
+  color:rgb(50, 125, 207)
+}
+
+view button{
+  margin-top: 30rpx;
+  background-color:rgb(50, 125, 207);
+  color: white;
+  width: 80%;
+}

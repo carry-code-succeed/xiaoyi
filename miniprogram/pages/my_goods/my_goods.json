@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "Tabs":"../../components/Tabs/Tabs"
+  },
+  "navigationBarTitleText": "我的商品",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

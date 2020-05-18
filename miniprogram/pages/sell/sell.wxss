@@ -1,0 +1,91 @@
+page{
+  background-color: white;
+}
+view{
+  padding: 0;
+  margin: 0;
+
+}
+.search_content{
+  margin-top: 30rpx;
+  z-index: 2;
+}
+.search_item{
+  background-color: rgb(245, 245, 245);
+  font-size: 26rpx;
+  padding: 15rpx 10rpx;
+  border-bottom: 1rpx solid black;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  z-index: 1;
+}
+.box_top{
+  margin: 50rpx;
+  padding: 0px;
+  margin-right: 0;
+}
+
+.box_top_a{
+  display: flex;
+  margin-bottom: 60rpx;
+  border-bottom: 1rpx solid rgb(245, 245, 245);
+  position: relative;
+}
+.box_top_a input{
+  font-size: 30rpx;
+  position: absolute;
+  right: 100rpx;
+}
+.box_bottom{
+  display: flex;
+  position: relative;
+  margin: 50rpx;
+  padding: 0px;
+  margin-right: 0;
+  margin-top: 0;
+}
+.box_bottom_a{
+  border-bottom: 1rpx solid rgb(245, 245, 245);
+}
+.box_bottom_b{
+  position: absolute;
+  top: 100rpx;
+  border-bottom: 1rpx solid rgb(245, 245, 245);
+}
+.box_bottom_c{
+  margin-left: 150rpx;
+  color: gray;
+}
+
+/*
+引入
+*/
+.addimage{
+  width: 100rpx;
+  height: 100rpx;
+  overflow: hidden;
+  z-index: -1; 
+}
+.addimage image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.bo1{
+  position: relative;
+}
+.cancalimage{
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  top: 50rpx;
+}
+.cancalimage icon{
+  margin-left: 55rpx;
+}
+
+button{
+  margin-top: 200rpx;
+  background-color: rgb(2, 125, 213);
+  color: white;
+}

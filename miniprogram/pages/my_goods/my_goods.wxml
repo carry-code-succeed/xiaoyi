@@ -1,0 +1,25 @@
+<Tabs tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange">
+  <block wx:if="{{tabs[0].isActive}}" bindtabsItemChange="my_goods">
+    <view class="first_tab"> 
+      <navigator class="goods_item"
+      wx:for="{{goodslist}}"
+      wx:key="COMMODITY_ID"
+      url="/pages/goods/goods?goods_id={{item.COMMODITY_ID}}"
+      >
+        <view class="goods_img_wrap">
+          <image mode="widthFix" src="{{item.COMMODITY_PICTURE?item.COMMODITY_PICTURE:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588344272301&di=b6df57edd39870e062d360d293150cde&imgtype=0&src=http%3A%2F%2Fwww.qianyisou.com%2FContent%2FImages%2Fmbno_img.jpg'}}"></image>
+        </view>
+        <view class="goods_info_warp">
+          <view class="goods_name">{{item.COMMODITY_NAME}}</view>
+          <view class="goods_price">{{item.COMMODITY_PRICE}}
+            <view class="box1">修改商品信息</view>
+            <view class="box2"  catchtap="Lower_shelf" data-ab="{{item.COMMODITY_ID}}">下架</view>
+          </view>
+        </view>
+      </navigator>
+      
+    </view>
+  </block>
+  <block wx:elif="{{tabs[1].isActive}}">1</block>
+  <block wx:elif="{{tabs[2].isActive}}">2</block>
+</Tabs>
