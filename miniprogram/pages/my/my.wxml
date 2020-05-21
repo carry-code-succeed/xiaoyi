@@ -36,6 +36,9 @@
           </view>
           <view class="history_name">设置</view>
         </navigator>
+        
+    </view>
+    <view class="history_warp">
         <!-- 聊天室 -->
         <navigator url="../chatfriend/chatfriend">
           <view class="history_img">
@@ -75,15 +78,15 @@
           </view>
           <view class="history_name">设置</view>
         </navigator>
-                <!-- 聊天室 -->
+    </view>
+    <view class="history_warp">
+        <!-- 聊天室 -->
         <navigator url="../chatfriend/chatfriend">
           <view class="history_img">
             <view class="iconfont icon-shezhi"></view>
           </view>
           <view class="history_name">聊天</view>
         </navigator>
-    </view>
-    <view class="history_warp">
       <navigator url="../setting/setting">
           <view class="history_img">
             <view class="iconfont icon-xiajia"></view>
