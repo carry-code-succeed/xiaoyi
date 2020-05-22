@@ -38,3 +38,35 @@ image{
   display: flex;
   color: red;
 }
+.item {
+  width: 40%;
+  float: left;
+  height: 350rpx;
+  margin-left: 50rpx;
+}
+.item_box{
+  
+}
+.item_img{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.item_img image{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  
+}
+.item_info{
+  float: none;
+  width: 100%;
+}
+.item_name{
+  
+}
+
+.item_price{
+  color: red;
+  margin-top: 20rpx;
+}
