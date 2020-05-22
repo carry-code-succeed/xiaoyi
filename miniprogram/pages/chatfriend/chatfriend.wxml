@@ -4,7 +4,7 @@
     <button bindtap="refreshchat">聊天列表</button>
   </view>
 </view>
-<view>{{groupId_avatar[0].groupid}}</view>
+
 <!---->
 <view class='a' wx:for="{{groupId_avatar}}" wx:key="groupid">
 <!--wx:for是微信数据绑定的一种方式，该数组有多少数据就显示多少个view-->
