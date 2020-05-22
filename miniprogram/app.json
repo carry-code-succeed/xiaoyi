@@ -1,9 +1,9 @@
 {
  
     "pages": [
-        
         "pages/my/my",
         "pages/login/login",
+       
         "pages/home/home",
         "pages/buy/buy",
         "pages/sell/sell",
@@ -12,9 +12,7 @@
         "pages/search/search",
         "pages/register/register",
         "pages/chatfriend/chatfriend",
-        "pages/my_goods/my_goods",
-        
-        
+        "pages/my_goods/my_goods",              
         "pages/Cancellation/Cancellation",
         "pages/Change_Password/Change_Password",
         "pages/personal_data/personal_data",

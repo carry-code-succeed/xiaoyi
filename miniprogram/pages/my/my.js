@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-      a:"aa",
+      a:"a",
       name:"aa",
       user_id:"",
       user_info:[],

@@ -42,7 +42,7 @@
         <!-- 聊天室 -->
         <navigator url="../chatfriend/chatfriend">
           <view class="history_img">
-            <view class="iconfont icon-shezhi"></view>
+            <view class="iconfont icon-chat"></view>
           </view>
           <view class="history_name">聊天</view>
         </navigator>
@@ -83,7 +83,7 @@
         <!-- 聊天室 -->
         <navigator url="../chatfriend/chatfriend">
           <view class="history_img">
-            <view class="iconfont icon-shezhi"></view>
+            <view class="iconfont icon-chat"></view>
           </view>
           <view class="history_name">聊天</view>
         </navigator>

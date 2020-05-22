@@ -7,7 +7,8 @@ Page({
    data:{
         ne:[],  //这是一个空的数组，等下获取到云数据库的数据将存放在其中
         user_id:"",
-        groupId:"",
+        groupId_avatar:"",
+        
     },
   /**
    * 生命周期函数--监听页面加载
@@ -28,9 +29,18 @@ Page({
         this.setData({
           ne: res.data
         })
+        //得到有自己id的聊天室 
+        for(var i in this.data.ne){
+          if(this.data.ne[i].groupId.split("%")[0]==this.data.user_id){
+           console.log(this.data.ne[i].groupId)
+           this.setData({
+            groupId_avatar:[...this.data.groupId_avatar,this.data.ne[i].groupId,this.data.ne[i].avatar]
+           })
+           console.log(this.data.groupId_avatar)
+          }
+         }
       }
     })
-
     wx.getStorage({
       key: 'user_id',
       success (res) {
@@ -39,16 +49,23 @@ Page({
           user_id:res.data,
         })
       }
+      
     })
+
+
   },    
 
   refreshchat(){
-    //得到有自己id的聊天室   
+    //聊天室清空
+    this.setData({
+      groupId_avatar:this.data.groupId.splice(0,0),
+    })
+    //得到有自己id的聊天室  
     for(var i in this.data.ne){
      if(this.data.ne[i].groupId.split("%")[0]==this.data.user_id){
       console.log(this.data.ne[i].groupId)
       this.setData({
-        groupId:[...this.data.groupId,this.data.ne[i].groupId]
+        groupId_avatar:[...this.data.groupId_avatar,this.data.ne[i].groupId]
       })
      }
     }
