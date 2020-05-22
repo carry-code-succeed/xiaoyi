@@ -7,7 +7,9 @@ Page({
    data:{
         ne:[],  //这是一个空的数组，等下获取到云数据库的数据将存放在其中
         user_id:"",
-        groupId_avatar:"",
+        groupId_avatar:[
+          
+        ],
         
     },
   /**
@@ -34,8 +36,13 @@ Page({
           if(this.data.ne[i].groupId.split("%")[0]==this.data.user_id){
            console.log(this.data.ne[i].groupId)
            this.setData({
-            groupId_avatar:[...this.data.groupId_avatar,this.data.ne[i].groupId,this.data.ne[i].avatar]
+            //groupId_avatar:[...this.data.groupId_avatar,this.data.ne[i].groupId,this.data.ne[i].avatar]
+
            })
+           var obj={}
+           obj.groupid=this.data.ne[i].groupId
+           obj.avatar=this.data.ne[i].avatar
+           this.data.groupId_avatar.push(obj)
            console.log(this.data.groupId_avatar)
           }
          }
@@ -58,7 +65,7 @@ Page({
   refreshchat(){
     //聊天室清空
     this.setData({
-      groupId_avatar:this.data.groupId.splice(0,0),
+      groupId_avatar:[],
     })
     //得到有自己id的聊天室  
     for(var i in this.data.ne){

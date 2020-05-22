@@ -2,6 +2,8 @@
  
     "pages": [
         "pages/my/my",
+        "pages/chatfriend/chatfriend",
+       
         "pages/login/login",
        
         "pages/home/home",
@@ -11,7 +13,7 @@
         "pages/goods/goods",
         "pages/search/search",
         "pages/register/register",
-        "pages/chatfriend/chatfriend",
+        
         "pages/my_goods/my_goods",              
         "pages/Cancellation/Cancellation",
         "pages/Change_Password/Change_Password",
