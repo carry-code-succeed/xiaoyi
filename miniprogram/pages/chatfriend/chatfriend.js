@@ -38,6 +38,7 @@ Page({
            var obj={}
            obj.groupid=this.data.ne[i].groupId
            obj.avatar=this.data.ne[i].avatar
+           obj.nickName=this.data.ne[i].nickName
            this.setData({
             //groupId_avatar:[...this.data.groupId_avatar,this.data.ne[i].groupId,this.data.ne[i].avatar]
             groupId_avatar:[...this.data.groupId_avatar,obj]
@@ -75,6 +76,7 @@ Page({
       var obj={}
       obj.groupid=this.data.ne[i].groupId
       obj.avatar=this.data.ne[i].avatar
+      obj.nickName=this.data.ne[i].nickName
       this.setData({
         //groupId_avatar:[...this.data.groupId_avatar,this.data.ne[i].groupId]
         groupId_avatar:[...this.data.groupId_avatar,obj]
