@@ -13,7 +13,7 @@ Page({
     console.log(Commodity_name);
     
     wx.request({
-      url: 'https://139.196.203.66:443/Q_M/H_P_Q/',
+      url: 'https://www.campustransaction.xyz/Q_M/H_P_Q/',
       data:{
         pagination:pagination,
         capacity:capacity,

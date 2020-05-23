@@ -5,7 +5,7 @@ Page({
   a1(){
     let that=this
     wx.request({
-      url: 'https://139.196.203.66:443/U_M/U_L/',
+      url: 'https://www.campustransaction.xyz/U_M/U_L/',
       data:{
         user_id:this.data.zhanghao,
         user_password:this.data.mima,
