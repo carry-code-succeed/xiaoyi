@@ -6,7 +6,7 @@ Page({
     console.log(e)
     console.log(e.target.dataset.ab)
     wx.request({
-      url: 'https://139.196.203.66:443/L_M/O_T_S_G/',
+      url: 'https://www.campustransaction.xyz/L_M/O_T_S_G/',
       data:{
         COMMODITY_ID:e.target.dataset.ab,
       },
@@ -32,7 +32,7 @@ Page({
       key: 'user_id',
       success(res){
         wx.request({
-          url: 'https://139.196.203.66:443/Q_M/A_P_Q/',
+          url: 'https://www.campustransaction.xyz/Q_M/A_P_Q/',
           data:{
             User_id:res.data
           },

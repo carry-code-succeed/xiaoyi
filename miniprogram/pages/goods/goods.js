@@ -4,7 +4,7 @@ Page({
   async getGoodsdetail(goods_id){
     let that=this
     wx.request({
-      url: 'https://139.196.203.66:443/Q_M/C_I_Q/',
+      url: 'https://www.campustransaction.xyz/Q_M/C_I_Q/',
       data:{
         Commodity_id:goods_id
       },

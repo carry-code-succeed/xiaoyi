@@ -17,6 +17,8 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
+    var flag=0
+    var that=this
     //1、引用数据库   
     const db = wx.cloud.database({
       //这个是环境ID不是环境名称     
@@ -32,18 +34,29 @@ Page({
           ne: res.data
         })
         //得到有自己id的聊天室 
-        for(var i in this.data.ne){
+        for(var i=this.data.ne.length-1;i>=0;i--){
           if(this.data.ne[i].groupId.split("%")[0]==this.data.user_id){
-           console.log(this.data.ne[i].groupId)
-           var obj={}
-           obj.groupid=this.data.ne[i].groupId
-           obj.avatar=this.data.ne[i].avatar
-           obj.nickName=this.data.ne[i].nickName
-           this.setData({
-            //groupId_avatar:[...this.data.groupId_avatar,this.data.ne[i].groupId,this.data.ne[i].avatar]
+            console.log(this.data.ne[i].groupId)
+            var obj={}
+            obj.groupid=that.data.ne[i].groupId
+            obj.avatar=that.data.ne[i].avatar
+            obj.nickName=that.data.ne[i].nickName
+            console.log(flag);
+  
+            if(flag==0)
+            {
+            console.log("aaa");
+            this.setData({
+            //groupId_avatar:[...this.data.groupId_avatar,this.data.ne[i].groupId]
             groupId_avatar:[...this.data.groupId_avatar,obj]
-           })
-           
+            })
+            }
+      
+            elif(flag==1)
+            {
+        
+            }
+          
            
            console.log(this.data.groupId_avatar)
           }
@@ -65,6 +78,8 @@ Page({
   },    
 
   refreshchat(){
+    let that=this
+    
     //聊天室清空
     this.setData({
       groupId_avatar:[],
@@ -73,14 +88,19 @@ Page({
     for(var i in this.data.ne){
      if(this.data.ne[i].groupId.split("%")[0]==this.data.user_id){
       console.log(this.data.ne[i].groupId)
+      
       var obj={}
-      obj.groupid=this.data.ne[i].groupId
-      obj.avatar=this.data.ne[i].avatar
-      obj.nickName=this.data.ne[i].nickName
-      this.setData({
+      obj.groupid=that.data.ne[i].groupId
+      obj.avatar=that.data.ne[i].avatar
+      obj.nickName=that.data.ne[i].nickName
+      
+        this.setData({
         //groupId_avatar:[...this.data.groupId_avatar,this.data.ne[i].groupId]
         groupId_avatar:[...this.data.groupId_avatar,obj]
       })
+      
+     
+      
      
      }
     }

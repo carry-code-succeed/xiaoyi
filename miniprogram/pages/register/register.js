@@ -5,7 +5,7 @@ Page({
   zhuce(){
     let that=this
     wx.request({
-      url: 'https://139.196.203.66:443/U_M/U_R/',
+      url: 'https://www.campustransaction.xyz/U_M/U_R/',
       data:{
         user_id:this.data.zhanghao,
         student_id:this.data.xuehao,
@@ -38,7 +38,7 @@ Page({
 
   a1(){
     wx.request({
-      url: 'https://139.196.203.66:443/U_M/U_R/',
+      url: 'https://www.campustransaction.xyz/U_M/U_R/',
     })
   },
   //判断账号密码是否规范

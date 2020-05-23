@@ -26,7 +26,7 @@ Page({
           user_id:res.data
         })
         wx.request({
-          url: 'https://139.196.203.66:443/Q_M/U_I_Q/',
+          url: 'https://www.campustransaction.xyz/Q_M/U_I_Q/',
           data:{
             User_id:res.data
           },

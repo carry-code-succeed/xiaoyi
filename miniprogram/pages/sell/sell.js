@@ -43,7 +43,7 @@ Page({
               imgId:res.fileID
             })
             wx.request({
-              url:'https://139.196.203.66:443/L_M/L_G/',
+              url:'https://www.campustransaction.xyz/L_M/L_G/',
               data:{
                 USER_ID:that.data.user_id,
                 COMMODITY_NAME:that.data.goods_name,

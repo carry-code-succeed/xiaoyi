@@ -1,12 +1,12 @@
 {
  
     "pages": [
+        
+        "pages/my/my",
         "pages/login/login",
         "pages/buy/buy",
-
-       
         "pages/chatfriend/chatfriend",
-        "pages/my/my",
+        
         
        
         "pages/home/home",
