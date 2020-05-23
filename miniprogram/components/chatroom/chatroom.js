@@ -26,6 +26,7 @@ Component({
     scrollTop: 0,
     scrollToMessage: '',
     hasKeyboard: false,
+    user_id:'',
   },
 
   methods: {
@@ -151,20 +152,46 @@ Component({
     },
 
     async onConfirmSendText(e) {
-      this.try(async () => {
+      let that=this
+      wx.getStorage({
+        key: 'user_id',
+        success (res) {
+          console.log(res.data)
+          that.setData({
+            user_id:res.data,
+          })
+          console.log(that.data.user_id)
+        }
+      })
+      that.try(async () => {
         if (!e.detail.value) {
           return
         }
 
-        const { collection } = this.properties
-        const db = this.db
+        const { collection } = that.properties
+        const db = that.db
         const _ = db.command
 //mark:时间戳
-        const doc = {
+        console.log(that.data.user_id)
+        wx.getStorage({
+          key: 'user_id',
+          success (res) {
+            console.log(res.data)
+            that.setData({
+              user_id:res.data,
+            })
+            console.log(that.data.user_id)
+            var aaa=that.data.user_id
+          }
+        })
+        
+        console.log(wx.getStorage.aaa)
+       const doc = {
           _id: `${Math.random()}_${Date.now()}`,
-          groupId: this.data.groupId,
-          avatar: this.data.userInfo.avatarUrl,
-          nickName: this.data.userInfo.nickName,
+          user_id: that.data.user_id,
+          groupId: that.data.groupId,
+          avatar: that.data.userInfo.avatarUrl,
+          nickName: that.data.userInfo.nickName,
           msgType: 'text',
           textContent: e.detail.value,
           sendTime: new Date(), 
@@ -187,26 +214,26 @@ Component({
               return tmpDate + tmpTime
         })()
         }
-
-        this.setData({
+        console.log(doc)
+        that.setData({
           textInputValue: '',
           chats: [
-            ...this.data.chats,
+            ...that.data.chats,
             {
               ...doc,
-              _openid: this.data.openId,
+              _openid: that.data.openId,
               writeStatus: 'pending',
             },
           ],
         })
-        this.scrollToBottom(true)
+        that.scrollToBottom(true)
 
         await db.collection(collection).add({
           data: doc,
         })
 
-        this.setData({
-          chats: this.data.chats.map(chat => {
+        that.setData({
+          chats: that.data.chats.map(chat => {
             if (chat._id === doc._id) {
               return {
                 ...chat,
@@ -226,6 +253,7 @@ Component({
           const { envId, collection } = this.properties
           const doc = {
             _id: `${Math.random()}_${Date.now()}`,
+            user_id: that.data.user_id,
             groupId: this.data.groupId,
             avatar: this.data.userInfo.avatarUrl,
             nickName: this.data.userInfo.nickName,

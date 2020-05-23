@@ -42,22 +42,14 @@ Page({
             obj.avatar=that.data.ne[i].avatar
             obj.nickName=that.data.ne[i].nickName
             console.log(flag);
-  
-            if(flag==0)
-            {
-            console.log("aaa");
-            this.setData({
-            //groupId_avatar:[...this.data.groupId_avatar,this.data.ne[i].groupId]
-            groupId_avatar:[...this.data.groupId_avatar,obj]
-            })
+            if(flag==0){
+              console.log("aaa");
+              that.setData({
+                //groupId_avatar:[...this.data.groupId_avatar,this.data.ne[i].groupId]
+                groupId_avatar:[...that.data.groupId_avatar,obj]
+              })
             }
-      
-            elif(flag==1)
-            {
-        
-            }
-          
-           
+            elif()
            console.log(this.data.groupId_avatar)
           }
          }
@@ -71,7 +63,6 @@ Page({
           user_id:res.data,
         })
       }
-      
     })
 
 
