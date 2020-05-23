@@ -46,6 +46,18 @@ Component({
     },
 
     async initRoom() {
+      console.log('-----------------------')
+      let that=this
+      wx.getStorage({
+        key: 'user_id',
+        success (res) {
+          console.log(res.data)
+          that.setData({
+            user_id:res.data,
+          })
+          console.log(that.data.user_id)
+        }
+      })
       this.try(async () => {
         await this.initOpenID()
 
@@ -152,18 +164,7 @@ Component({
     },
 
     async onConfirmSendText(e) {
-      let that=this
-      wx.getStorage({
-        key: 'user_id',
-        success (res) {
-          console.log(res.data)
-          that.setData({
-            user_id:res.data,
-          })
-          console.log(that.data.user_id)
-        }
-      })
-      that.try(async () => {
+      this.try(async () => {
         if (!e.detail.value) {
           return
         }
@@ -171,21 +172,9 @@ Component({
         const { collection } = that.properties
         const db = that.db
         const _ = db.command
+        var aaa
 //mark:时间戳
-        console.log(that.data.user_id)
-        wx.getStorage({
-          key: 'user_id',
-          success (res) {
-            console.log(res.data)
-            that.setData({
-              user_id:res.data,
-            })
-            console.log(that.data.user_id)
-            var aaa=that.data.user_id
-          }
-        })
-        
-        console.log(wx.getStorage.aaa)
+
        const doc = {
           _id: `${Math.random()}_${Date.now()}`,
           user_id: that.data.user_id,
@@ -253,7 +242,7 @@ Component({
           const { envId, collection } = this.properties
           const doc = {
             _id: `${Math.random()}_${Date.now()}`,
-            user_id: that.data.user_id,
+            user_id: this.data.user_id,
             groupId: this.data.groupId,
             avatar: this.data.userInfo.avatarUrl,
             nickName: this.data.userInfo.nickName,
