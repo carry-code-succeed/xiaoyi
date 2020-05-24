@@ -58,6 +58,15 @@ Component({
           console.log(that.data.user_id)
         }
       })
+      wx.getUserInfo({
+        success: function(res) {
+          var userInfo = 
+          console.log(res.userInfo)
+          that.setData({
+            userInfo:res.userInfo
+          })
+        }
+      })
       this.try(async () => {
         await this.initOpenID()
 
@@ -169,18 +178,18 @@ Component({
           return
         }
 
-        const { collection } = that.properties
-        const db = that.db
+        const { collection } = this.properties
+        const db = this.db
         const _ = db.command
         var aaa
 //mark:时间戳
 
        const doc = {
           _id: `${Math.random()}_${Date.now()}`,
-          user_id: that.data.user_id,
-          groupId: that.data.groupId,
-          avatar: that.data.userInfo.avatarUrl,
-          nickName: that.data.userInfo.nickName,
+          user_id: this.data.user_id,
+          groupId: this.data.groupId,
+          avatar: this.data.userInfo.avatarUrl,
+          nickName: this.data.userInfo.nickName,
           msgType: 'text',
           textContent: e.detail.value,
           sendTime: new Date(), 
@@ -204,25 +213,25 @@ Component({
         })()
         }
         console.log(doc)
-        that.setData({
+        this.setData({
           textInputValue: '',
           chats: [
-            ...that.data.chats,
+            ...this.data.chats,
             {
               ...doc,
-              _openid: that.data.openId,
+              _openid: this.data.openId,
               writeStatus: 'pending',
             },
           ],
         })
-        that.scrollToBottom(true)
+        this.scrollToBottom(true)
 
         await db.collection(collection).add({
           data: doc,
         })
 
-        that.setData({
-          chats: that.data.chats.map(chat => {
+        this.setData({
+          chats: this.data.chats.map(chat => {
             if (chat._id === doc._id) {
               return {
                 ...chat,

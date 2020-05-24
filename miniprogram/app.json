@@ -24,7 +24,7 @@
         "pages/setting/setting",
        
         "pages/im/im",
-        
+        "pages/room/room",
         "pages/userConsole/userConsole",
         "pages/storageConsole/storageConsole",
         "pages/databaseGuide/databaseGuide",

@@ -35,7 +35,24 @@ Page({
         })
         //得到有自己id的聊天室 
         for(var i=this.data.ne.length-1;i>=0;i--){
-          if(this.data.ne[i].groupId.split("%")[0]==this.data.user_id){
+          if(this.data.ne[i].groupId.split("%")[0]==this.data.user_id&&this.data.ne[i].user_id!=this.data.user_id){
+            console.log(this.data.ne[i].groupId)
+            var obj={}
+            obj.groupid=that.data.ne[i].groupId
+            obj.avatar=that.data.ne[i].avatar
+            obj.nickName=that.data.ne[i].nickName
+            console.log(flag);
+            if(flag==0){
+              console.log("aaa");
+              that.setData({
+                //groupId_avatar:[...this.data.groupId_avatar,this.data.ne[i].groupId]
+                groupId_avatar:[...that.data.groupId_avatar,obj]
+              })
+            }
+            elif()
+           console.log(this.data.groupId_avatar)
+          }
+          if(this.data.ne[i].groupId.split("%")[1]==this.data.user_id&&this.data.ne[i].user_id!=this.data.user_id){
             console.log(this.data.ne[i].groupId)
             var obj={}
             obj.groupid=that.data.ne[i].groupId
@@ -70,31 +87,48 @@ Page({
 
   refreshchat(){
     let that=this
-    
+    var flag=0
     //聊天室清空
     this.setData({
       groupId_avatar:[],
     })
     //得到有自己id的聊天室  
-    for(var i in this.data.ne){
-     if(this.data.ne[i].groupId.split("%")[0]==this.data.user_id){
-      console.log(this.data.ne[i].groupId)
-      
-      var obj={}
-      obj.groupid=that.data.ne[i].groupId
-      obj.avatar=that.data.ne[i].avatar
-      obj.nickName=that.data.ne[i].nickName
-      
-        this.setData({
-        //groupId_avatar:[...this.data.groupId_avatar,this.data.ne[i].groupId]
-        groupId_avatar:[...this.data.groupId_avatar,obj]
-      })
-      
-     
-      
-     
-     }
-    }
+ for(var i=this.data.ne.length-1;i>=0;i--){
+          if(this.data.ne[i].groupId.split("%")[0]==this.data.user_id&&this.data.ne[i].user_id!=this.data.user_id){
+            console.log(this.data.ne[i].groupId)
+            var obj={}
+            obj.groupid=that.data.ne[i].groupId
+            obj.avatar=that.data.ne[i].avatar
+            obj.nickName=that.data.ne[i].nickName
+            console.log(flag);
+            if(flag==0){
+              console.log("aaa");
+              that.setData({
+                //groupId_avatar:[...this.data.groupId_avatar,this.data.ne[i].groupId]
+                groupId_avatar:[...that.data.groupId_avatar,obj]
+              })
+            }
+            elif()
+           console.log(this.data.groupId_avatar)
+          }
+          if(this.data.ne[i].groupId.split("%")[1]==this.data.user_id&&this.data.ne[i].user_id!=this.data.user_id){
+            console.log(this.data.ne[i].groupId)
+            var obj={}
+            obj.groupid=that.data.ne[i].groupId
+            obj.avatar=that.data.ne[i].avatar
+            obj.nickName=that.data.ne[i].nickName
+            console.log(flag);
+            if(flag==0){
+              console.log("aaa");
+              that.setData({
+                //groupId_avatar:[...this.data.groupId_avatar,this.data.ne[i].groupId]
+                groupId_avatar:[...that.data.groupId_avatar,obj]
+              })
+            }
+            elif()
+           console.log(this.data.groupId_avatar)
+          }
+         }
   },
 
   go(e){
