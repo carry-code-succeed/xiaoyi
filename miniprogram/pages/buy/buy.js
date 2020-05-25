@@ -237,7 +237,8 @@ Page({
     //重置数组
     this.setData({
       //goodsList:[],
-      goodslist:[]
+      goodslist:[],
+      goodslist2:[]
     })
     //重置页码
     //this.QueryParams.pagenum=1;
