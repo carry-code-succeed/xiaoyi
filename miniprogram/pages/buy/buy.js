@@ -1,6 +1,7 @@
 // pages/buy/buy.js
 import {request} from "../../request/index.js";
 Page({
+  //默认排序
   async getGoodslist(){
     let that=this
     wx.showLoading({
@@ -20,12 +21,14 @@ Page({
         Commodity_name:Commodity_name,
       },
       success(res){
-        console.log(res)
+        // that.QueryParams2.pagination=Math.ceil(res.data[0].total/that.QueryParams2.capacity)
+        // console.log(that.QueryParams2.pagination)
         that.setData({
           goodslist:res.data,
         })
         that.setData({
-          goodslist2:res.data[2].goods,
+          // goodslist2:res.data[2].goods,
+          goodslist2:[...that.data.goodslist2,...res.data[2].goods],
         })
         
         
@@ -44,9 +47,80 @@ Page({
     }, 500)
   },
 
+  //时间排序
+  async getGoodslist_time(){
+    let that=this
+    wx.showLoading({
+      title: '加载中',
+      mask:true
+    })
+    const pagination=this.QueryParams2.pagination
+    const capacity=this.QueryParams2.capacity
+    const Commodity_name=this.QueryParams2.Commodity_name
+    console.log(Commodity_name);
+    
+    wx.request({
+      url: 'https://139.196.203.66:443/Q_M/H_P_Q_C/',
+      data:{
+        pagination:pagination,
+        capacity:capacity,
+        Commodity_name:Commodity_name,
+      },
+      success(res){
+        that.setData({
+          goodslist:res.data,
+        })
+        that.setData({
+          goodslist2:res.data,
+          // goodslist2:[...that.data.goodslist2,...res.data],
+        }) 
+      }
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 500)
+  },
+  
+  //时间排序
+  async getGoodslist_price(){
+    let that=this
+    wx.showLoading({
+      title: '加载中',
+      mask:true
+    })
+    const pagination=this.QueryParams2.pagination
+    const capacity=this.QueryParams2.capacity
+    const Commodity_name=this.QueryParams2.Commodity_name
+    console.log(Commodity_name);
+    
+    wx.request({
+      url: 'https://139.196.203.66:443/Q_M/H_P_Q_P/',
+      data:{
+        pagination:pagination,
+        capacity:capacity,
+        Commodity_name:Commodity_name,
+      },
+      success(res){
+        that.setData({
+          goodslist:res.data,
+        })
+        that.setData({
+          goodslist2:res.data,
+          // goodslist2:[...that.data.goodslist2,...res.data],
+        })
+        
+        
+        
+      }
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 500)
+  },
+
   QueryParams2:{
     pagination:1,
-    capacity:20,
+    capacity:6,
     Commodity_name:"",
   },
   //页面触底事件
@@ -78,12 +152,28 @@ Page({
   },
   //切换功能
   handleTabsItemChange(e){
+    console.log(e)
     const {index}=e.detail;
     let {tabs}=this.data;
     tabs.forEach((v,i)=>i===index?v.isActive=true:v.isActive=false)
+    console.log(index)
     this.setData({
       tabs
     })
+    this.setData({
+        goodslist2:[],
+      })
+    if(index==0){      
+      this.getGoodslist()
+    }
+    if(index==1){
+      this.getGoodslist_time()
+    }
+    if(index==2){
+      this.getGoodslist_price()
+    }
+
+
   },
   /**
    * 页面的初始数据
@@ -157,7 +247,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    if(this.QueryParams.pagenum>=this.totalPages)
+    console.log(this.QueryParams2.pagination)
+    console.log(Math.ceil(this.data.goodslist[0].total/this.QueryParams2.capacity))
+    if(this.QueryParams2.pagination>=Math.ceil(this.data.goodslist[0].total/this.QueryParams2.capacity))
+    // this.QueryParams2.pagination=Math.ceil(res.data[0].total/this.QueryParams2.capacity),
       //console.log("meile")
       wx.showToast({
         title: '没有下一页数据了',
@@ -165,8 +258,11 @@ Page({
       })
     else{
       //console.log("haiyou")
-      this.QueryParams.pagenum++;
-      this.getGoodsList();
+      this.QueryParams2.pagination++;
+      this.QueryParams2.capacity
+      this.getGoodslist();
+      // this.getGoodslist_time();
+      // this.getGoodslist_price();
     }
   
   },

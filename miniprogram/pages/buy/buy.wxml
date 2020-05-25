@@ -1,6 +1,21 @@
 <Tabs tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange">
   <block wx:if="{{tabs[0].isActive}}">
-    <view class="first_tab"> 
+    <navigator class="item"
+      wx:for="{{goodslist2}}"
+      wx:key="COMMODITY_ID"
+      url="/pages/goods/goods?goods_id={{item.COMMODITY_ID}}"
+      >
+        <view class="item_box">
+          <view class="item_img">
+          <image mode="scaleToFill" src="{{item.COMMODITY_PICTURE?item.COMMODITY_PICTURE:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588344272301&di=b6df57edd39870e062d360d293150cde&imgtype=0&src=http%3A%2F%2Fwww.qianyisou.com%2FContent%2FImages%2Fmbno_img.jpg'}}"></image>
+          </view>
+          <view class="item_info">
+            <view class="item_name">{{item.COMMODITY_NAME}}</view>
+            <view class="item_price">￥{{item.COMMODITY_PRICE}}</view>
+          </view>
+        </view>
+      </navigator>
+    <!-- <view class="first_tab"> 
       <navigator class="goods_item"
       wx:for="{{goodslist2}}"
       wx:key="COMMODITY_ID"
@@ -15,7 +30,7 @@
         </view>
       </navigator>
       
-    </view>
+    </view> -->
   </block>
   <block wx:elif="{{tabs[1].isActive}}">
   <navigator class="item"
@@ -34,5 +49,21 @@
         </view>
       </navigator>
   </block>
-  <block wx:elif="{{tabs[2].isActive}}">2</block>
+  <block wx:elif="{{tabs[2].isActive}}">
+    <navigator class="item"
+      wx:for="{{goodslist2}}"
+      wx:key="COMMODITY_ID"
+      url="/pages/goods/goods?goods_id={{item.COMMODITY_ID}}"
+      >
+        <view class="item_box">
+          <view class="item_img">
+          <image mode="scaleToFill" src="{{item.COMMODITY_PICTURE?item.COMMODITY_PICTURE:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588344272301&di=b6df57edd39870e062d360d293150cde&imgtype=0&src=http%3A%2F%2Fwww.qianyisou.com%2FContent%2FImages%2Fmbno_img.jpg'}}"></image>
+          </view>
+          <view class="item_info">
+            <view class="item_name">{{item.COMMODITY_NAME}}</view>
+            <view class="item_price">￥{{item.COMMODITY_PRICE}}</view>
+          </view>
+        </view>
+      </navigator>
+  </block>
 </Tabs>
