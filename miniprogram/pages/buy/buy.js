@@ -165,6 +165,7 @@ Page({
     this.setData({
         goodslist2:[],
       })  
+    this.QueryParams2.pagination=1;
     if(index==0){   
       this.QueryParams2.index=index
       this.getGoodslist()
@@ -225,7 +226,7 @@ Page({
     } else{
       console.log("无关键词");
     }
-    this.getGoodsList(),
+    //this.getGoodsList(),
     this.getGoodslist()
   },
   /**
@@ -235,13 +236,14 @@ Page({
     this.QueryParams2.Commodity_name=""
     //重置数组
     this.setData({
-      goodsList:[],
+      //goodsList:[],
       goodslist:[]
     })
     //重置页码
-    this.QueryParams.pagenum=1;
+    //this.QueryParams.pagenum=1;
+    this.QueryParams2.pagination=1;
     //重新发送请求
-    this.getGoodsList();
+    //this.getGoodsList();
     this.getGoodslist();
     //关闭下拉刷新的窗口
     wx.stopPullDownRefresh();
@@ -252,7 +254,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log(this.QueryParams2.pagination)
+    console.log("当前为:"+this.QueryParams2.pagination)
     console.log(Math.ceil(this.data.goodslist[0].total/this.QueryParams2.capacity))
     if(this.QueryParams2.pagination>=Math.ceil(this.data.goodslist[0].total/this.QueryParams2.capacity))
     // this.QueryParams2.pagination=Math.ceil(res.data[0].total/this.QueryParams2.capacity),
