@@ -245,7 +245,16 @@ Page({
     this.QueryParams2.pagination=1;
     //重新发送请求
     //this.getGoodsList();
-    this.getGoodslist();
+
+    if(this.QueryParams2.index==0){
+        this.getGoodslist();
+      }
+      if(this.QueryParams2.index==1){
+        this.getGoodslist_time();
+      }
+      if(this.QueryParams2.index==2){
+        this.getGoodslist_price();
+      }
     //关闭下拉刷新的窗口
     wx.stopPullDownRefresh();
   },
