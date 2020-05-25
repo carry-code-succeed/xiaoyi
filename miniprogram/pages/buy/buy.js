@@ -67,12 +67,13 @@ Page({
         Commodity_name:Commodity_name,
       },
       success(res){
+        console.log(res)
         that.setData({
           goodslist:res.data,
         })
         that.setData({
-          goodslist2:res.data,
-          // goodslist2:[...that.data.goodslist2,...res.data],
+          // goodslist2:res.data,
+          goodslist2:[...that.data.goodslist2,...res.data[2].goods],
         }) 
       }
     })
@@ -105,8 +106,8 @@ Page({
           goodslist:res.data,
         })
         that.setData({
-          goodslist2:res.data,
-          // goodslist2:[...that.data.goodslist2,...res.data],
+          // goodslist2:res.data,
+          goodslist2:[...that.data.goodslist2,...res.data[2].goods],
         })
         
         
@@ -122,6 +123,7 @@ Page({
     pagination:1,
     capacity:6,
     Commodity_name:"",
+    index:"",
   },
   //页面触底事件
   totalPages:1,
@@ -162,14 +164,17 @@ Page({
     })
     this.setData({
         goodslist2:[],
-      })
-    if(index==0){      
+      })  
+    if(index==0){   
+      this.QueryParams2.index=index
       this.getGoodslist()
     }
     if(index==1){
+      this.QueryParams2.index=index
       this.getGoodslist_time()
     }
     if(index==2){
+      this.QueryParams2.index=index
       this.getGoodslist_price()
     }
 
@@ -259,10 +264,15 @@ Page({
     else{
       //console.log("haiyou")
       this.QueryParams2.pagination++;
-      this.QueryParams2.capacity
-      this.getGoodslist();
-      // this.getGoodslist_time();
-      // this.getGoodslist_price();
+      if(this.QueryParams2.index==0){
+        this.getGoodslist();
+      }
+      if(this.QueryParams2.index==1){
+        this.getGoodslist_time();
+      }
+      if(this.QueryParams2.index==2){
+        this.getGoodslist_price();
+      }
     }
   
   },
