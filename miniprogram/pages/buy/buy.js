@@ -109,9 +109,6 @@ Page({
           // goodslist2:res.data,
           goodslist2:[...that.data.goodslist2,...res.data[2].goods],
         })
-        
-        
-        
       }
     })
     setTimeout(function () {

@@ -1,7 +1,7 @@
 // pages/buy/buy.js
 import {request} from "../../request/index.js";
 Page({
-
+//下架商品
   Lower_shelf(e){
     console.log(e)
     console.log(e.target.dataset.ab)
@@ -12,20 +12,38 @@ Page({
       },
       success(res){
         console.log(res);
-        
       },
       fail(res){
         console.log(res);
       }
-      
     }),
     wx.navigateTo({
       url: 'my_goods',
     })
   },
 
+  //上架商品
+  on_shelf(e){
+    console.log(e)
+    console.log(e.target.dataset.ab)
+    wx.request({
+      url: ' ',
+      data:{
+        COMMODITY_ID:e.target.dataset.ab,
+      },
+      success(res){
+        console.log(res);
+      },
+      fail(res){
+        console.log(res);
+      }
+    }),
+    wx.navigateTo({
+      url: 'my_goods',
+    })
+  },
   
-
+//全部
   async my_goods(){
     let that=this
     wx.getStorage({
@@ -37,16 +55,111 @@ Page({
             User_id:res.data
           },
           success(res){
+            console.log(res);
             that.setData({
               goodslist:res.data
-            })
-            
+            })     
+            for(var i in that.data.goodslist){
+              var state
+              if(that.data.goodslist[i].IS_PUTAWAY=="Under_the_shelf"){
+                state="已下架"
+                let updateVal = that.data.goodslist[i].IS_PUTAWAY;
+                //goodslist[i].IS_PUTAWAY=state
+                var up = "goodslist[" + i + "].IS_PUTAWAY";
+                that.setData({
+                  goodslist:that.data.goodslist,
+                  i:i,
+                  [up]:state
+                })
+              }
+              else{
+                state="下架"
+                let updateVal = that.data.goodslist[i].IS_PUTAWAY;
+                //goodslist[i].IS_PUTAWAY=state
+                var up = "goodslist[" + i + "].IS_PUTAWAY";
+                that.setData({
+                  goodslist:that.data.goodslist,
+                  i:i,
+                  [up]:state
+                })
+              }
+              console.log(that.data.goodslist[i]);
+            }
           }
         })
       }
     })
-    
   },
+
+  //出售中
+  async my_ongoods(){
+    let that=this
+    wx.getStorage({
+      key: 'user_id',
+      success(res){
+        wx.request({
+          url: 'https://www.campustransaction.xyz/Q_M/A_P_Q_O/',
+          data:{
+            User_id:res.data
+          },
+          success(res){
+            console.log(res);
+            that.setData({
+              goodslist:res.data
+            })     
+            for(var i in that.data.goodslist){
+              var state
+                state="下架"
+                let updateVal = that.data.goodslist[i].IS_PUTAWAY;
+                //goodslist[i].IS_PUTAWAY=state
+                var up = "goodslist[" + i + "].IS_PUTAWAY";
+                that.setData({
+                  goodslist:that.data.goodslist,
+                  i:i+1,
+                  [up]:state
+                })
+            }
+          }
+        })
+      }
+    })
+  },
+
+  //已下架
+  async my_downgoods(){
+    let that=this
+    wx.getStorage({
+      key: 'user_id',
+      success(res){
+        wx.request({
+          url: ' https://www.campustransaction.xyz/Q_M/A_P_Q_U/',
+          data:{
+            User_id:res.data
+          },
+          success(res){
+            console.log(res);
+            that.setData({
+              goodslist:res.data
+            })     
+            for(var i in that.data.goodslist){
+              var state
+                state="上架"
+                let updateVal = that.data.goodslist[i].IS_PUTAWAY;
+                //goodslist[i].IS_PUTAWAY=state
+                var up = "goodslist[" + i + "].IS_PUTAWAY";
+                that.setData({
+                  goodslist:that.data.goodslist,
+                  i:i+1,
+                  [up]:state
+                })
+              console.log(that.data.goodslist[i]);
+            }
+          }
+        })
+      }
+    })
+  },
+
   //页面触底事件
   totalPages:1,
   //获取商品列表数据
@@ -82,6 +195,24 @@ Page({
     this.setData({
       tabs
     })
+    if(index==0){   
+      this.setData({
+        index:0,
+      })
+      this.my_goods()
+    }
+    if(index==1){   
+      this.setData({
+        index:1,
+      })
+      this.my_ongoods()
+    }
+    if(index==2){   
+      this.setData({
+        index:2,
+      })
+      this.my_downgoods()
+    }
   },
   /**
    * 页面的初始数据
@@ -106,6 +237,7 @@ Page({
     ],
     goodsList:[],
     goodslist:[],
+    index:"",
     
   },
 
@@ -157,7 +289,15 @@ Page({
     //重置页码
     this.QueryParams.pagenum=1;
     //重新发送请求
-    this.getGoodsList();
+    if(this.data.index==0){
+      this.my_goods();
+    }
+    if(this.data.index==1){
+      this.my_ongoods();
+    }
+    if(this.data.index==2){
+      this.my_downgoods();
+    }
     //关闭下拉刷新的窗口
     wx.stopPullDownRefresh();
   },
@@ -176,7 +316,15 @@ Page({
     else{
       //console.log("haiyou")
       this.QueryParams.pagenum++;
-      this.getGoodsList();
+      if(this.data.index==0){
+        this.my_goods();
+      }
+      if(this.data.index==1){
+        this.my_ongoods();
+      }
+      if(this.data.index==2){
+        this.my_downgoods();
+      }
     }
     
   },
