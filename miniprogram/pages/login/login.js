@@ -19,7 +19,7 @@ Page({
             data: res.data,  
             key: 'user_id',
           }),
-          wx.switchTab({
+          wx.reLaunch({
             url:"../home/home",
             success(res){
               console.log(res)
@@ -42,7 +42,7 @@ Page({
   feikong1(e){
     this.setData({
       zhanghao:e.detail.value,
-      jump:true
+      
     })
     
   },
@@ -50,7 +50,7 @@ Page({
   feikong2(e){
     this.setData({
       mima:e.detail.value,
-      jump:true
+      
     })
   },
   //提交数据，并进行非空判断
@@ -60,22 +60,22 @@ Page({
     if(this.data.zhanghao==="a" || this.data.mima==="a")
       this.setData({
         meg:"账号或密码不能为空",
-        jump:true
+        
       })
       else if (zhanghao1.test(this.data.zhanghao)==false)
       this.setData({
         meg:"账号或密码错误",
-        jump:true
+        
       })
     else if(mima3.test(this.data.mima1)==false)
       this.setData({
         meg:"账号或密码错误",
-        jump:true
+        
       })
     
     else
       this.setData({
-        jump:false,
+        
         meg:""
       })
 
@@ -88,7 +88,7 @@ Page({
     zhanghao:"a",
     mima:"a",
     meg:"",
-    jump:true
+    
   },
 
   /**

@@ -7,7 +7,7 @@
 </view>
 <view>
 
-  <button form-type="submit" bindtap="a1" disabled="{{jump}}">登录</button>
+  <button form-type="submit" bindtap="a1" >登录</button>
 
 </view>
 <view>

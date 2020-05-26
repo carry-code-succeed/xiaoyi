@@ -7,17 +7,7 @@
       <icon type="search" color="white" bindtap="search"></icon>
     </navigator>
   </view>
-  <!--热门搜索部分-->
-  <view class="box3">
-    <view class="box6">
-      热门搜索
-    </view>
-    <!--热门搜索属性部分-->
-    <view class="box4" >
-      <button wx:for="{{shopList}}" wx:key="id" bindtap="hotSearch" data-option="{{item.name}}">{{item.name}}</button>
-      
-    </view>
-  </view>
+  
   <!--搜索历史部分-->
   <view class="box7">
     <view>
