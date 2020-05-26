@@ -10,6 +10,10 @@ Page({
         groupId_avatar:[
           
         ],
+        groupId_avatar2:[
+          
+        ],
+        xunwen:"",
         
     },
   /**
@@ -46,7 +50,7 @@ Page({
               console.log("aaa");
               that.setData({
                 //groupId_avatar:[...this.data.groupId_avatar,this.data.ne[i].groupId]
-                groupId_avatar:[...that.data.groupId_avatar,obj]
+                groupId_avatar2:[...that.data.groupId_avatar,obj]
               })
             }
             elif()
@@ -69,7 +73,17 @@ Page({
             elif()
            console.log(this.data.groupId_avatar)
           }
-         }
+        }
+        if(groupId_avatar2.length!=0){
+          that.setData({
+            xunwen:"买家的询问"
+          })
+        }
+        if(groupId_avatar.length!=0){
+          that.setData({
+            xunwen:"我的询问"
+          })
+        }
       }
     })
     wx.getStorage({
@@ -105,7 +119,7 @@ Page({
               console.log("aaa");
               that.setData({
                 //groupId_avatar:[...this.data.groupId_avatar,this.data.ne[i].groupId]
-                groupId_avatar:[...that.data.groupId_avatar,obj]
+                groupId_avatar2:[...that.data.groupId_avatar,obj]
               })
             }
             elif()

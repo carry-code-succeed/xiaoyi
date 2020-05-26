@@ -6,7 +6,24 @@
 </view>
 
 <!---->
+<text class="xunwen">{{xunwen}}</text>
 <view class='uploader' wx:for="{{groupId_avatar}}" wx:key="groupid">
+<!--wx:for是微信数据绑定的一种方式，该数组有多少数据就显示多少个view-->
+    <!--index为每个数据对应的下标-->
+    <view >
+    <image 
+        class="avatar"
+        src="{{item.avatar}}"
+        mode="scaleToFill"
+      ></image>{{item.nickName}}
+    </view>
+    <view class="uploader-text">
+       <button bindtap="go" data-id="{{item.groupid}}">私聊买家</button>
+    </view>
+
+</view>
+<text class="xunwen">买家的询问</text>
+<view class='uploader' wx:for="{{groupId_avatar2}}" wx:key="groupid">
 <!--wx:for是微信数据绑定的一种方式，该数组有多少数据就显示多少个view-->
     <!--index为每个数据对应的下标-->
     <view >
