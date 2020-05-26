@@ -2,33 +2,19 @@
   <!--商品名称-->
   <view class="box_top_a">
   <text>商品名称</text>
-  <input type="text" placeholder="请输入商品名称" bindblur="a1"></input>
+  <input type="text" placeholder="请输入商品名称" bindinput="a1" value="{{goods_detail[0].COMMODITY_NAME}}"></input>
   </view>
   <view class="box_top_a">
   <text>商品价格</text>
-  <input type="text" placeholder="请输入商品价格" bindblur="a2"></input>
-  </view>
-  <view class="box_top_a">
-  <text>商品库存</text>
-  <input type="text" placeholder="请输入商品库存" bindblur="a3"></input>
+  <input type="text" placeholder="请输入商品价格" bindinput="a2" value="{{goods_detail[0].COMMODITY_PRICE}}"></input>
   </view>
   <view class="box_top_a">
   <text>商品描述</text>
-  <input type="text" placeholder="请输入商品描述" bindblur="a4"></input>
+  <input type="text" placeholder="请输入商品描述" bindinput="a4" value="{{goods_detail[0].COMMODITY_INFO}}"></input>
   </view>
 </view>
-  <!--交易类型-->
+
 <view class="box_bottom">
-  <text>交易类型</text>
-  <view class="box_bottom_c">
-  <view bindtap="select" class="box_bottom_a">{{type}}</view>
-    <view class="search_content"  >
-      <view class="search_item" wx:for="{{list2}}" wx:key="id" bindtap="select_none" data-value="{{item.name}}" >
-        {{item.name}}
-      </view>
-    </view>
-  </view>
-  
   <view class="box_bottom_b">
     <text>效果图:</text>
     <view class="box1">
@@ -39,6 +25,6 @@
       <icon type="cancel" size="20" bindtap="cancleImg"></icon>
     </view>
   </view>
-  </view>
+</view>
 </view>
 <button bindtap="upload">上传</button>

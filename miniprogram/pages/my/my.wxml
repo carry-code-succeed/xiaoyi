@@ -60,7 +60,7 @@
           </view>
           <view class="history_name">我的商品</view>
         </navigator>
-        <navigator>
+        <navigator url="../history/history">
           <view class="history_img">
             <view class="iconfont icon-lishiliulan"></view>
           </view>

@@ -1,10 +1,25 @@
 // pages/buy/buy.js
 import {request} from "../../request/index.js";
 Page({
+
+
+  //修改商品信息
+  change_goods_info(e){
+    console.log(e)
+    console.log(e.target.dataset.ab)
+    wx.reLaunch({
+      url: '../sell/sell?goodsid='+e.target.dataset.ab,
+    })
+  },
+
+  //下架
+
 //下架商品
+
   Lower_shelf(e){
     console.log(e)
     console.log(e.target.dataset.ab)
+    
     wx.request({
       url: 'https://www.campustransaction.xyz/L_M/O_T_S_G/',
       data:{
@@ -20,6 +35,7 @@ Page({
     wx.navigateTo({
       url: 'my_goods',
     })
+    
   },
 
   //上架商品
@@ -238,6 +254,7 @@ Page({
     goodsList:[],
     goodslist:[],
     index:"",
+    flog:"已下架",
     
   },
 

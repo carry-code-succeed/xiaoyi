@@ -45,18 +45,13 @@ view{
   margin-right: 0;
   margin-top: 0;
 }
-.box_bottom_a{
-  border-bottom: 1rpx solid rgb(245, 245, 245);
-}
+
 .box_bottom_b{
   position: absolute;
   top: 100rpx;
   border-bottom: 1rpx solid rgb(245, 245, 245);
 }
-.box_bottom_c{
-  margin-left: 150rpx;
-  color: gray;
-}
+
 
 /*
 引入

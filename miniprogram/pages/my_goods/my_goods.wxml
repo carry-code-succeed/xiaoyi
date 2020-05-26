@@ -12,7 +12,8 @@
         <view class="goods_info_warp">
           <view class="goods_name">{{item.COMMODITY_NAME}}</view>
           <view class="goods_price">{{item.COMMODITY_PRICE}}
-            <view class="box1">修改商品信息</view>
+
+            <view class="box1" catchtap="change_goods_info" data-ab="{{item.COMMODITY_ID}}" wx:if="{{item.IS_PUTAWAY!=flog}}">修改商品信息</view>
             <view class="box2"  catchtap="Lower_shelf" data-ab="{{item.COMMODITY_ID}}">{{item.IS_PUTAWAY}}</view>
           </view>
         </view>
@@ -34,6 +35,7 @@
           <view class="goods_name">{{item.COMMODITY_NAME}}</view>
           <view class="goods_price">{{item.COMMODITY_PRICE}}
             <view class="box1">修改商品信息</view>
+
             <view class="box2"  catchtap="Lower_shelf" data-ab="{{item.COMMODITY_ID}}">下架</view>
           </view>
         </view>
