@@ -16,7 +16,7 @@
 }
 image{
   width: 70%;
-
+  height: 200rpx;
 }
 .goods_info_warp{
   display: flex;

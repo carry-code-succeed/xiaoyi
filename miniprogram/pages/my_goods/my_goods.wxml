@@ -7,7 +7,7 @@
       url="/pages/goods/goods?goods_id={{item.COMMODITY_ID}}"
       >
         <view class="goods_img_wrap">
-          <image mode="widthFix" src="{{item.COMMODITY_PICTURE?item.COMMODITY_PICTURE:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588344272301&di=b6df57edd39870e062d360d293150cde&imgtype=0&src=http%3A%2F%2Fwww.qianyisou.com%2FContent%2FImages%2Fmbno_img.jpg'}}"></image>
+          <image  src="{{item.COMMODITY_PICTURE?item.COMMODITY_PICTURE:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588344272301&di=b6df57edd39870e062d360d293150cde&imgtype=0&src=http%3A%2F%2Fwww.qianyisou.com%2FContent%2FImages%2Fmbno_img.jpg'}}"></image>
         </view>
         <view class="goods_info_warp">
           <view class="goods_name">{{item.COMMODITY_NAME}}</view>
