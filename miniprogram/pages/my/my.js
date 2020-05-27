@@ -30,10 +30,10 @@ Page({
           data:{
             User_id:res.data
           },
-          success(res){
-            console.log(res)
+          success(res1){
+            console.log(res1)
             that.setData({
-              user_info:res.data
+              user_info:res1.data
             })
             
           },

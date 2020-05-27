@@ -97,10 +97,12 @@ Page({
             User_id:res.data
           },
           success(res1){
+            console.log(res1.data[0].USER_PICTRUE);
             that.setData({
               message:res1.data[0],
+              tempFilePaths:res1.data[0].USER_PICTRUE,
             })
-            console.log(that.data.message);
+            
           }
         })
       }

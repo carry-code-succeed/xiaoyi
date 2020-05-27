@@ -1,10 +1,10 @@
 
 <view class="user_info_warp">
   <view class="user_img_wrap">
-    <image class="user_bg" src="{{item[0].USER_PICTRUE?item[0].USER_PICTRUE:'https://pics.images.ac.cn/image/5ea821486e1aa.html'}}"></image>
+    <image class="user_bg" src="{{user_info[0].USER_PICTRUE?user_info[0].USER_PICTRUE:'https://pics.images.ac.cn/image/5ea821486e1aa.html'}}"></image>
   </view>
   <view class="user_info">
-    <image class="user_icon" src="{{item.USER_PICTRUE?item.USER_PICTRUE:'https://pics.images.ac.cn/image/5ea821486e1aa.html'}}"> </image>
+    <image class="user_icon" src="{{user_info[0].USER_PICTRUE?user_info[0].USER_PICTRUE:'https://pics.images.ac.cn/image/5ea821486e1aa.html'}}"> </image>
     <view class="user_name">{{user_info[0].USER_NAME?user_info[0].USER_NAME:name}}</view>
   </view>
 </view>

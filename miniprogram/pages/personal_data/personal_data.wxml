@@ -4,7 +4,8 @@
   </view>
   <view class="user_info">
     <image class="user_icon" 
-    bindtap="chooseImg" src="{{tempFilePaths?tempFilePaths:'https://pics.images.ac.cn/image/5ea821486e1aa.html'}}"> </image>
+    bindtap="chooseImg" src="{{tempFilePaths?tempFilePaths:'https://pics.images.ac.cn/image/5ea821486e1aa.html'}}"> 
+    </image>
     <view class="user_name">点击更换头像</view>
   </view>
 </view>
