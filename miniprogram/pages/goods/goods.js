@@ -39,9 +39,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that=this
     const {goods_id}=options;
     console.log(goods_id);
     this.getGoodsdetail(goods_id)
+    wx.getStorage({
+      key: 'user_id',
+      success (res) {
+        console.log(res.data)
+        that.setData({
+          user_id:res.data,
+        })
+      }
+    })
   },
 
 

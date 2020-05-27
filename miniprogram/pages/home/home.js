@@ -40,6 +40,7 @@ Page({
     */
     request({url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata'})
     .then(result=>{
+      console.log(result)
       this.setData({
         swiperList:result.data.message
       })

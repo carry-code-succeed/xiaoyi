@@ -76,7 +76,6 @@ Page({
                   [up]:state
                 })
               }
-              console.log(that.data.goodslist[i]);
             }
           }
         })
@@ -134,19 +133,18 @@ Page({
             that.setData({
               goodslist:res.data
             })     
-            for(var i in that.data.goodslist){
-              var state
-                state="上架"
-                let updateVal = that.data.goodslist[i].IS_PUTAWAY;
-                //goodslist[i].IS_PUTAWAY=state
-                var up = "goodslist[" + i + "].IS_PUTAWAY";
-                that.setData({
-                  goodslist:that.data.goodslist,
-                  i:i+1,
-                  [up]:state
-                })
-              console.log(that.data.goodslist[i]);
-            }
+            // for(var i in that.data.goodslist){
+            //   var state
+            //     state="上架"
+            //     let updateVal = that.data.goodslist[i].IS_PUTAWAY;
+            //     //goodslist[i].IS_PUTAWAY=state
+            //     var up = "goodslist[" + i + "].IS_PUTAWAY";
+            //     that.setData({
+            //       goodslist:that.data.goodslist,
+            //       i:i+1,
+            //       [up]:state
+            //     })
+            // }
           }
         })
       }

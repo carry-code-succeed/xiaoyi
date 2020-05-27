@@ -1,21 +1,22 @@
 <view class="user_info_warp">
   <view class="user_img_wrap">
-    <image class="user_bg" src="https://pics.images.ac.cn/image/5ea821486e1aa.html"></image>
+    <image class="user_bg" src="{{tempFilePaths?tempFilePaths:'https://pics.images.ac.cn/image/5ea821486e1aa.html'}}"></image>
   </view>
   <view class="user_info">
-    <image class="user_icon" src="https://pics.images.ac.cn/image/5ea821486e1aa.html"> </image>
+    <image class="user_icon" 
+    bindtap="chooseImg" src="{{tempFilePaths?tempFilePaths:'https://pics.images.ac.cn/image/5ea821486e1aa.html'}}"> </image>
     <view class="user_name">点击更换头像</view>
   </view>
 </view>
 <view class="box1">
-  <view class="box2">昵称:<input placeholder="{{a}}" bindblur="change_name"></input></view>
-  <view class="box2">性别:<input placeholder="{{a}}"></input></view>
-  <view class="box2">手机号:<input placeholder="{{a}}"></input></view>
-  <view class="box2">QQ号:<input placeholder="{{a}}"></input></view>
-  <view class="box2">专业:<input placeholder="{{a}}"></input></view>
-  <view class="box2">年级:<input placeholder="{{a}}"></input></view>
+  <view class="box2">昵称:<input placeholder="{{a}}" bindinput="change1" value="{{message.USER_NAME}}"></input></view>
+  <view class="box2">性别:<input placeholder="{{a}}" bindinput="change2" value="{{message.SEX}}"></input></view>
+  <view class="box2">手机号:<input placeholder="{{a}}" bindinput="change3" value="{{message.TELEPHONE}}"></input></view>
+  <view class="box2">QQ号:<input placeholder="{{a}}" bindinput="change4" value="{{message.QQ_NUMBER}}"></input></view>
+  <view class="box2">专业:<input placeholder="{{a}}" bindinput="change5" value="{{message.SPECIALILZED_SUBJECT}}"></input></view>
+  <view class="box2">年级:<input placeholder="{{a}}" bindinput="change6" value="{{message.GRADE}}"></input></view>
 </view>
 <view class="box3">
-  <button>提交</button>
+  <button bindtap="change">提交</button>
 </view>
 

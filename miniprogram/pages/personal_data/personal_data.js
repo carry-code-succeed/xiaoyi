@@ -1,18 +1,55 @@
 // pages/personal_data/personal_data.js
 Page({
+  change1(e){
+    console.log(e)
+    this.setData({
+      USER_NAME:e.detail.value
+    })
+  },
+  change2(e){
+    console.log(e.detail.value)
+    this.setData({
+      SEX:e.detail.value
+    })
+  },
+  change3(e){
+    console.log(e.detail.value)
+    this.setData({
+      TELEPHONE:e.detail.value
+    })
+  },
+  change4(e){
+    console.log(e.detail.value)
+    this.setData({
+      QQ_NUMBER:e.detail.value
+    })
+  },
+  change5(e){
+    console.log(e.detail.value)
+    this.setData({
+      SPECIALILZED_SUBJECT:e.detail.value
+    })
+  },
+  change6(e){
+    console.log(e.detail.value)
+    this.setData({
+      GRADE:e.detail.value
+    })
+  },
 
   //修改用户昵称
-  change_name(e){
-
-    this.setData({
-      name:e.detail.value
-    })
+  change(){
     wx.request({
-      url: 'https://139.196.203.66/A_M/M_U_I',
+      url: 'https://www.campustransaction.xyz/A_M/M_U_I',
       data:{
         USER_ID:this.data.user_id,
-        Information_name:"USER_NAME",
-        Information_content:this.data.name,
+        USER_NAME:this.data.USER_NAME,
+        USER_PICTRUE:this.data.tempFilePaths,
+        QQ_NUMBER:this.data.QQ_NUMBER,
+        TELEPHONE:this.data.TELEPHONE,
+        SPECIALILZED_SUBJECT:this.data.SPECIALILZED_SUBJECT,
+        GRADE:this.data.GRADE,
+        SEX:this.data.SEX,
       },
       success(res){
         console.log(res)
@@ -25,18 +62,70 @@ Page({
    * 页面的初始数据
    */
   data: {
-    a:"江某",
+    a:"无",
     name:"",
-    user_id:"11233121",
+    user_id:"",
+    message:"",
+    tempFilePaths:"",
+
+    USER_ID:"",
+    USER_NAME:"",
+    USER_PASSWORD:"",
+    USER_PICTRUE:"",
+    QQ_NUMBER:"",
+    TELEPHONE:"",
+    SPECIALILZED_SUBJECT:"",
+    GRADE:"",
+    SEX:"",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that=this
+    wx.getStorage({
+      key: 'user_id',
+      success (res) {
+        console.log(res.data)
+        that.setData({
+          user_id:res.data,
+        })
+        wx.request({
+          url: 'https://www.campustransaction.xyz/Q_M/U_I_Q/',
+          data:{
+            User_id:res.data
+          },
+          success(res1){
+            that.setData({
+              message:res1.data[0],
+            })
+            console.log(that.data.message);
+          }
+        })
+      }
+    })
+    
   },
 
+  chooseImg(){
+    let that=this
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success (res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+        that.setData({
+          tempFilePaths:tempFilePaths[0],
+          //add_img:tempFilePaths[0],
+        })
+      },
+      fail(res){
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
