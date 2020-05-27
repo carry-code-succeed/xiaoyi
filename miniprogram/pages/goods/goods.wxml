@@ -21,12 +21,12 @@
     {{sell_id}}
   </view>
   <view class="seller_button">
-    <navigator>他在卖什么</navigator>
+    <navigator  url="/pages/theysell/theysell?sell_id={{sell_id}}">他在卖什么</navigator>
   </view>
 </view>
 <view class="goods">
   <view class="goods_title">
-    商品信息
+    商品信息{{goods_detail[0].COMMODITY_ID}}
   </view>
   <view class="goods_introduce">
     {{goods_detail[0].COMMODITY_INFO}}

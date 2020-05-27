@@ -19,7 +19,6 @@ Page({
   Lower_shelf(e){
     console.log(e)
     console.log(e.target.dataset.ab)
-    
     wx.request({
       url: 'https://www.campustransaction.xyz/L_M/O_T_S_G/',
       data:{
@@ -35,30 +34,8 @@ Page({
     wx.navigateTo({
       url: 'my_goods',
     })
-    
   },
 
-  //上架商品
-  on_shelf(e){
-    console.log(e)
-    console.log(e.target.dataset.ab)
-    wx.request({
-      url: ' ',
-      data:{
-        COMMODITY_ID:e.target.dataset.ab,
-      },
-      success(res){
-        console.log(res);
-      },
-      fail(res){
-        console.log(res);
-      }
-    }),
-    wx.navigateTo({
-      url: 'my_goods',
-    })
-  },
-  
 //全部
   async my_goods(){
     let that=this
@@ -148,7 +125,7 @@ Page({
       key: 'user_id',
       success(res){
         wx.request({
-          url: ' https://www.campustransaction.xyz/Q_M/A_P_Q_U/',
+          url: 'https://www.campustransaction.xyz/Q_M/A_P_Q_U/',
           data:{
             User_id:res.data
           },
