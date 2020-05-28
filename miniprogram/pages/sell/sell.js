@@ -307,7 +307,9 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    this.setData({
+    if(this.data.goods_id)
+    {
+      this.setData({
       goods_id:"",
       goods_detail:[],
       add_img_succsed:"none",
@@ -319,6 +321,8 @@ Page({
       sell_id:"",
       user_id:"a",
     })
+    }
+    
   },
 
   /**
