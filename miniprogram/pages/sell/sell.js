@@ -195,7 +195,7 @@ Page({
         const tempFilePaths = res.tempFilePaths
         that.setData({
           tempFilePaths:tempFilePaths[0],
-          //add_img:tempFilePaths[0],
+          add_img:tempFilePaths[0],
           add_img_succsed:"block"
         })
         
