@@ -1,14 +1,14 @@
 {
  
     "pages": [
-        "pages/login/login",
+        "pages/sell/sell",
         "pages/theysell/theysell",
         "pages/buy/buy",
         "pages/my/my",
-        
+         "pages/login/login",
         
         "pages/chatfriend/chatfriend",
-        "pages/sell/sell",
+        
         "pages/my_goods/my_goods",
         "pages/history/history",
         "pages/home/home",

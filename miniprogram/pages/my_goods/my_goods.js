@@ -31,7 +31,7 @@ Page({
         console.log(res);
       }
     }),
-    wx.navigateTo({
+    wx.redirectTo({
       url: 'my_goods',
     })
   },
