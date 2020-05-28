@@ -230,7 +230,6 @@ Page({
     goodslist:[],
     index:"",
     flog:"已下架",
-    
   },
 
   /**

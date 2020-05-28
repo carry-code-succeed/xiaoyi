@@ -42,4 +42,10 @@ Page({
       }
     })
   },
+
+  go_personal(){
+    wx.navigateTo({
+      url: '/pages/personal_data/personal_data',
+  })
+  }
 })

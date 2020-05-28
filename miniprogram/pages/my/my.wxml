@@ -4,7 +4,7 @@
     <image class="user_bg" src="{{user_info[0].USER_PICTRUE?user_info[0].USER_PICTRUE:'https://ae01.alicdn.com/kf/H4b60606a4dd842808a30d2986f131908J.jpg'}}"></image>
   </view>
   <view class="user_info">
-    <image class="user_icon" src="{{user_info[0].USER_PICTRUE?user_info[0].USER_PICTRUE:'https://ae01.alicdn.com/kf/H4b60606a4dd842808a30d2986f131908J.jpg'}}"> </image>
+    <image class="user_icon" bindtap="go_personal" src="{{user_info[0].USER_PICTRUE?user_info[0].USER_PICTRUE:'https://ae01.alicdn.com/kf/H4b60606a4dd842808a30d2986f131908J.jpg'}}"> </image>
     <view class="user_name">{{user_info[0].USER_NAME?user_info[0].USER_NAME:name}}</view>
   </view>
 </view>
