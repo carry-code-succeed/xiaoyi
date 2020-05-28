@@ -37,22 +37,21 @@ image{
   top: 200rpx;
 }
 
-
 .item {
   width: 40%;
   float: left;
   height: 350rpx;
   margin-left: 50rpx;
-
+  margin-top: 30rpx;
+  display: block;
 }
 .item_box{
-
+  
 }
 .item_img{
   width: 100%;
   justify-content: center;
   align-items: center;
-
 }
 .item_img image{
   width: 100%;
@@ -71,4 +70,35 @@ image{
 .item_price{
   color: red;
   margin-top: 20rpx;
+}
+
+@font-face {font-family: "iconfont";
+  src: url('//at.alicdn.com/t/font_1847846_rudxd1cjl7.eot?t=1590633139682'); /* IE9 */
+  src: url('//at.alicdn.com/t/font_1847846_rudxd1cjl7.eot?t=1590633139682#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAALoAAsAAAAABqQAAAKcAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcAqBLIE5ATYCJAMICwYABCAFhG0HMhvhBciuMYUxdi0JJEmBbXCGm1PpC/zCe4YIqv3eevZtCED+aLbAwpCKEYkEEiae7Fkqf0JdeQLh3v+u6S+yMBm5shyyQjjIAeVempIbsN/chGZj5wpqEw5QL/8hq5JkVr9UpUsCPOEXC0sF5n8upzfKF8j83nCZa9lRL8B4a6B7YBRZgYTeMHbBC3xMoN6wNMfG5PwS+GX2qkCcqzIH/kJEllm+VqhuOJjFI4/adJU+Aw/R9+OXYvhJqgp2087ZhAjDXzudItd+uW8rQERBQMerUGARyMRBY2aLSzC6S33GbRwcqz742vkvsImjmgX76+zaRjAIJc8k9WSPWptAhtMVYHPSteTm5sbG43Z7tdVaaTSWnDfvl5bDmcpVpjSby1v4a5dvPaGrl4vnzpVLSG1oummuL50+fXI+OsJA5EvwJVxlmY7dXcc0uN/99wSVGZvdT6hD3JSpzyFXTdXuWnLlaE81CcMAZdP1Viz8yt/Yf3o31v/nD2Xw5W+sKFQ23Yb5QO0JvcGPkw7syobc1qcnkCBvUsmFJKCI+5VgB9q9TjV03aUr1BakDJIaQ1CoNYlm8iJUaVCBarWWod6CqeMNOlAukesw7wRAaHULSbOPUGj1jGbyC1Tp9gbVWsMF9Y4idWGD6VCDYxRzDIuIryNVIJbk2lkwrl/ActngaF4eMVYwLalxVMjmy/kpbGG6xJZSRS4yJiGJEhNNguewYRBkU6JhgWUVxuzeXE5qelNWICYEraMwDoOJEF4dohIQFinozwQrn1+AycoMHNpBqAuuwKgSdXakICs/AJ3SWIMIj/JKSYWsiGEkiIQiTMgkmIcZDARiN8/TYAImS5mQsvXKOb2koZrs9jrz7w5APduYwmkq1J6rHGGe2wIA') format('woff2'),
+  url('//at.alicdn.com/t/font_1847846_rudxd1cjl7.woff?t=1590633139682') format('woff'),
+  url('//at.alicdn.com/t/font_1847846_rudxd1cjl7.ttf?t=1590633139682') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('//at.alicdn.com/t/font_1847846_rudxd1cjl7.svg?t=1590633139682#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-liaotian:before {
+  content: "\e622";
+}
+.box2{
+  position: absolute;
+  width: 100%;
+  height: 100rpx;
+  top: 270rpx;
+}
+.box2 text{
+  top: 0;
+  left: 320rpx;
 }
