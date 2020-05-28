@@ -15,7 +15,7 @@
 </view>
 <view class="seller">
   <view class="seller_img">
-    <image src="https://pics.images.ac.cn/image/5ea821486e1aa.html"></image>
+    <image src="https://ae01.alicdn.com/kf/H4b60606a4dd842808a30d2986f131908J.jpg"></image>
   </view>
   <view class="seller_name">
     {{sell_id}}

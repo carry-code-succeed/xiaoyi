@@ -81,7 +81,7 @@ swiper image{
 }
 .tool_name{
   position: absolute;
-  top: 1150rpx;
+  top: 1100rpx;
   left: 30rpx;
   font-size: 30rpx;
   color: gray;

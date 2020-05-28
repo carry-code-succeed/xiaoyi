@@ -67,6 +67,13 @@
 					"pathName": "pages/goods/goods",
 					"query": "goods_id=20200508175752",
 					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "pages/theysell/theysell",
+					"pathName": "pages/theysell/theysell",
+					"query": "sell_id=456987",
+					"scene": null
 				}
 			]
 		}

@@ -1,1 +1,74 @@
-/* pages/theysell/theysell.wxss */
+image{
+  width: 70%;
+  height: 200rpx;
+}
+.info{
+  background-color: rgb(2, 125, 213);
+  height: 390rpx;
+}
+
+.box1{
+  background-color: white;
+  margin-top: 120rpx;
+  height: 280rpx;
+  font-size: 40rpx;
+  border-top-left-radius: 8%;
+  border-top-right-radius: 8%;
+}
+
+.tou{
+  display: flex;
+  width: 150rpx;
+  position: absolute;
+  left: 300rpx;
+  top: 10rpx;
+
+}
+
+.tou image{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 20%;
+}
+
+.box1 text{
+  position: absolute;
+  left: 300rpx;
+  top: 200rpx;
+}
+
+
+.item {
+  width: 40%;
+  float: left;
+  height: 350rpx;
+  margin-left: 50rpx;
+
+}
+.item_box{
+
+}
+.item_img{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+}
+.item_img image{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  
+}
+.item_info{
+  float: none;
+  width: 100%;
+}
+.item_name{
+  
+}
+
+.item_price{
+  color: red;
+  margin-top: 20rpx;
+}
