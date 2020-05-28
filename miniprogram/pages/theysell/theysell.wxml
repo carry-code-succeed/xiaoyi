@@ -1,11 +1,11 @@
 <view class="info">
   <view class="box1">
-    <text>{{seller_info[0].USER_NAME}}</text>
-    <view class="tou">
+  <text class="sellname">{{seller_info[0].USER_NAME}}</text>
+    <view class="tou" >
       <image src="https://ae01.alicdn.com/kf/H4b60606a4dd842808a30d2986f131908J.jpg"></image>
     </view >
     <view class="box2">
-      <text class="iconfont icon-liaotian">聊天</text>
+      <text bindtap="go" class="iconfont icon-liaotian">聊天</text>
     </view>
     
   </view>

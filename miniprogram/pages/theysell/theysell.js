@@ -54,6 +54,23 @@ Page({
     })
   },
 
+  go(){
+    let that=this
+    wx.getStorage({
+      key: 'user_id',
+      success (res) {
+        console.log(res.data)
+        that.setData({
+          user_id:res.data,
+          chatid:that.data.seller_id + '%' + res.data
+        })
+       wx.navigateTo({
+        url: '/pages/room/room?id=' + that.data.chatid,
+    })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

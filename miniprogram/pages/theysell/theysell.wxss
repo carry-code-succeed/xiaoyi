@@ -16,6 +16,12 @@ image{
   border-top-right-radius: 8%;
 }
 
+.sellname{
+  width: 100%;
+  height: 100rpx;
+  text-align: center;
+}
+
 .tou{
   display: flex;
   width: 150rpx;
@@ -33,8 +39,9 @@ image{
 
 .box1 text{
   position: absolute;
-  left: 300rpx;
+  /* left: 300rpx; */
   top: 200rpx;
+  
 }
 
 .item {
