@@ -6,7 +6,7 @@
   padding: 15rpx 0;
 }
 .tabs_content{
-  
+
 }
 .title_tiem{
   display: flex;

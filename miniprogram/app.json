@@ -1,6 +1,7 @@
 {
  
     "pages": [
+        "pages/home/home",
         "pages/login/login",
         "pages/sell/sell",
         "pages/theysell/theysell",
@@ -13,10 +14,7 @@
         
         "pages/my_goods/my_goods",
         
-        "pages/home/home",
         
-        
-        "pages/index/index",
         "pages/goods/goods",
         "pages/search/search",
         "pages/register/register",
@@ -40,8 +38,8 @@
         "pages/openapi/callback/callback",
         "pages/openapi/cloudid/cloudid",
         
-        "pages/im/room/room",
-        "pages/demo/index"
+        "pages/im/room/room"
+
     ],
     "tabBar": {
         "list": [
