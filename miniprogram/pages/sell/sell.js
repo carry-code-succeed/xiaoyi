@@ -148,13 +148,10 @@ Page({
                     setTimeout(function () {
                       wx.hideLoading()
                     }, 1000)    
-  
-  
                   }
                 },
                 fail(res){
                   console.log(res); 
-                  
                 }
               })
             },
@@ -165,14 +162,9 @@ Page({
         },
         fail(res){
           console.log(res);
-          
         }
       })
-      
-      
     }
-    
-   
   },
 
   cancleImg(){

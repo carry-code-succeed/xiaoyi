@@ -1,8 +1,6 @@
 
 Page({
 
-  
-  
   /**
    * 页面的初始数据
    */
@@ -16,6 +14,7 @@ Page({
   onShow(){
     
   },
+
   onLoad: function (options){
     let that=this
     wx.getStorage({
@@ -35,7 +34,6 @@ Page({
             that.setData({
               user_info:res1.data
             })
-            
           },
           fail(res){
             console.log(res)
@@ -43,7 +41,5 @@ Page({
         })
       }
     })
-    
-  }
- 
+  },
 })

@@ -1,7 +1,7 @@
 // pages/personal_data/personal_data.js
 Page({
   change1(e){
-    console.log(e)
+    console.log(e.detail.value)
     this.setData({
       USER_NAME:e.detail.value
     })
@@ -39,23 +39,105 @@ Page({
 
   //修改用户昵称
   change(){
+    let that=this
+    var timestamp = new Date().getTime()
+    this.setData({
+      timestamp:String(timestamp),
+    })
+    console.log(this.data.tempFilePaths)
+    if(this.data.flog==1){
+    wx.cloud.uploadFile({
+      cloudPath: this.data.timestamp + '.jpg',
+      filePath: this.data.tempFilePaths, // 文件路径
+      success: res => {
+        // get resource ID
+        console.log(res.fileID)
+        that.setData({
+          tempFilePaths:res.fileID
+        })
+        console.log(that.data.USER_NAME)
+        wx.request({
+          url: 'https://www.campustransaction.xyz/A_M/M_U_I/',
+          data:{
+            USER_ID:that.data.user_id,
+            USER_NAME:that.data.USER_NAME,
+            USER_PICTRUE:that.data.tempFilePaths,
+            QQ_NUMBER:that.data.QQ_NUMBER,
+            TELEPHONE:that.data.TELEPHONE,
+            SPECIALILZED_SUBJECT:that.data.SPECIALILZED_SUBJECT,
+            GRADE:that.data.GRADE,
+            SEX:that.data.SEX,
+          },
+          success(res){
+            console.log(res)
+            if(res.data[0].result=="成功！")
+        {
+          
+          wx.showLoading({
+            title: '成功',
+            mask:true
+          })
+          setTimeout(function () {
+            wx.hideLoading()
+          }, 1000)
+        }
+        else{
+          wx.showLoading({
+            title: '失败',
+            mask:true
+          })
+          setTimeout(function () {
+            wx.hideLoading()
+          }, 1000)
+        }
+          }
+         }) 
+      },
+      fail: err => {
+        console.log(err)
+        // handle error
+      }
+    })
+  }
+  else{
     wx.request({
-      url: 'https://www.campustransaction.xyz/A_M/M_U_I',
+      url: 'https://www.campustransaction.xyz/A_M/M_U_I/',
       data:{
-        USER_ID:this.data.user_id,
-        USER_NAME:this.data.USER_NAME,
-        USER_PICTRUE:this.data.tempFilePaths,
-        QQ_NUMBER:this.data.QQ_NUMBER,
-        TELEPHONE:this.data.TELEPHONE,
-        SPECIALILZED_SUBJECT:this.data.SPECIALILZED_SUBJECT,
-        GRADE:this.data.GRADE,
-        SEX:this.data.SEX,
+        USER_ID:that.data.user_id,
+        USER_NAME:that.data.USER_NAME,
+        USER_PICTRUE:that.data.tempFilePaths,
+        QQ_NUMBER:that.data.QQ_NUMBER,
+        TELEPHONE:that.data.TELEPHONE,
+        SPECIALILZED_SUBJECT:that.data.SPECIALILZED_SUBJECT,
+        GRADE:that.data.GRADE,
+        SEX:that.data.SEX,
       },
       success(res){
         console.log(res)
+        if(res.data[0].result=="成功！")
+        {
+          
+          wx.showLoading({
+            title: '成功',
+            mask:true
+          })
+          setTimeout(function () {
+            wx.hideLoading()
+          }, 1000)
+        }
+        else{
+          wx.showLoading({
+            title: '失败',
+            mask:true
+          })
+          setTimeout(function () {
+            wx.hideLoading()
+          }, 1000)
+        }
       }
-    })
-  },
+     }) 
+  }
+},
 
 
   /**
@@ -66,6 +148,8 @@ Page({
     name:"",
     user_id:"",
     message:"",
+    timestamp:"",
+    flog:0,
     tempFilePaths:"",
 
     USER_ID:"",
@@ -97,12 +181,18 @@ Page({
             User_id:res.data
           },
           success(res1){
-            console.log(res1.data[0].USER_PICTRUE);
             that.setData({
               message:res1.data[0],
               tempFilePaths:res1.data[0].USER_PICTRUE,
+              USER_ID:res1.data[0].USER_ID,
+              USER_NAME:res1.data[0].USER_NAME,
+              USER_PASSWORD:res1.data[0].USER_PASSWORD,
+              QQ_NUMBER:res1.data[0].QQ_NUMBER,
+              TELEPHONE:res1.data[0].TELEPHONE,
+              SPECIALILZED_SUBJECT:res1.data[0].SPECIALILZED_SUBJECT,
+              GRADE:res1.data[0].GRADE,
+              SEX:res1.data[0].SEX,
             })
-            
           }
         })
       }
@@ -122,6 +212,7 @@ Page({
         that.setData({
           tempFilePaths:tempFilePaths[0],
           //add_img:tempFilePaths[0],
+          flog:1,
         })
       },
       fail(res){
