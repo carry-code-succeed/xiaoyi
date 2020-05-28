@@ -46,10 +46,23 @@ Page({
   
   upload(){
     let that=this;
-    
+    if(that.data.is_choose==1)
+    {
     const filePath=this.data.tempFilePaths;
     var timestamp = Date.parse(new Date());
     const cloudPath=timestamp+filePath.match(/\.[^.]+?$/)[0];
+    }
+    else{
+      wx.showLoading({
+        title: '请上传图片',
+        mask:true
+      })
+      setTimeout(function () {
+        wx.hideLoading()
+      }, 500)
+      return
+    }
+    
     
    wx.showLoading({
     title: '加载中',
@@ -95,76 +108,111 @@ Page({
     }
     else{
       //无id
-      wx.getStorage({
-        key: 'user_id',
-        success(res){
-          that.setData({
-            user_id:res.data
-          })
-          wx.cloud.uploadFile({
-            cloudPath: cloudPath,
-            filePath: filePath, // 文件路径
-            success: res => {
-              // get resource ID
-              that.setData({
-                imgId:res.fileID
-              })
-              wx.request({
-                url:'https://www.campustransaction.xyz/L_M/L_G/',
-                data:{
-                  USER_ID:that.data.user_id,
-                  COMMODITY_NAME:that.data.goods_name,
-                  COMMODITY_INFO:that.data.goods_introduce,
-                  COMMODITY_PRICE:that.data.goods_price,
-                  COMMODITY_PICTURE:that.data.imgId,
-                },
-                success(res){
-                  console.log(res);
-                  if(res.data=="OK")
-  
-                    {wx.showLoading({
-                      title: '成功',
-                      mask:true
-                    })
-                    setTimeout(function () {
-                      wx.hideLoading()
-                    }, 1000)                
-                  }
-                  if(res.data=="ERROR")
-                  {
+      if(that.data.goods_name && that.data.goods_price && that.data.goods_introduce) //都有值才会执行
+      {
+        wx.getStorage({
+          key: 'user_id',
+          success(res){
+            that.setData({
+              user_id:res.data
+            })
+            wx.cloud.uploadFile({
+              cloudPath: cloudPath,
+              filePath: filePath, // 文件路径
+              success: res => {
+                // get resource ID
+                that.setData({
+                  imgId:res.fileID
+                })
+                wx.request({
+                  url:'https://www.campustransaction.xyz/L_M/L_G/',
+                  data:{
+                    USER_ID:that.data.user_id,
+                    COMMODITY_NAME:that.data.goods_name,
+                    COMMODITY_INFO:that.data.goods_introduce,
+                    COMMODITY_PRICE:that.data.goods_price,
+                    COMMODITY_PICTURE:that.data.imgId,
+                  },
+                  success(res){
+                    console.log(res);
+                    if(res.data[0].result=="成功！")
+    
+                      {wx.showLoading({
+                        title: '成功',
+                        mask:true
+                      })
+                      setTimeout(function () {
+                        wx.hideLoading()
+                      }, 1000)                
+                    }
+                    
+                    if(res.data[0].result=="上架商品失败！")
+                    {
+                      wx.showLoading({
+                        title: '失败',
+                        mask:true
+                      });
+                      if(that.data.is_choose==1){
+                        wx.cloud.deleteFile({
+                          fileList:that.data.imgId
+                        }).then(res=>{
+                          console.log(res.fileList)
+                        })
+                        that.setData({
+                          imgId:""
+                        })
+                      }  
+                      
+                      setTimeout(function () {
+                        wx.hideLoading()
+                      }, 1000)    
+                    }
+                    if(res.statusCode==500)
+                    {
+                      wx.showLoading({
+                        title: '失败',
+                        mask:true
+                      });
+                      setTimeout(function () {
+                        wx.hideLoading()
+                      }, 1000)
+                    }
+                  },
+                  fail(res){
+                    console.log(res); 
                     wx.showLoading({
                       title: '失败',
                       mask:true
                     });
-                       
-                    wx.cloud.deleteFile({
-                      fileList:that.data.imgId
-                    }).then(res=>{
-                      console.log(res.fileList)
-                    })
-                    that.setData({
-                      imgId:""
-                    })
                     setTimeout(function () {
                       wx.hideLoading()
                     }, 1000)    
                   }
-                },
-                fail(res){
-                  console.log(res); 
-                }
-              })
-            },
-            fail: err => {
-              // handle error
-            }
-          })
-        },
-        fail(res){
-          console.log(res);
-        }
-      })
+                })
+              },
+              fail: err => {
+                // handle error
+              }
+            })
+          },
+          fail(res){
+            console.log(res);
+          }
+        })
+        
+      }
+      else{
+        wx.showLoading({
+          title: '不能留空',
+          mask:true
+        });
+        setTimeout(function () {
+          wx.hideLoading()
+        }, 1000)    
+      }
+    
     }
+    
   },
 
   cancleImg(){
@@ -173,6 +221,7 @@ Page({
           add_img:"https://ae01.alicdn.com/kf/H00f3ec68a68e41ff80bb890d22cb13344.jpg",
           add_img_succsed:"none",
           imgId:"",
+          is_choose:0,
     })
   },
 
@@ -188,7 +237,8 @@ Page({
         that.setData({
           tempFilePaths:tempFilePaths[0],
           add_img:tempFilePaths[0],
-          add_img_succsed:"block"
+          add_img_succsed:"block",
+          is_choose:1,
         })
         
       },
@@ -202,7 +252,7 @@ Page({
    */
   
   data: {
-   
+    is_choose:0,
     goods_id:"",
     list2:[],
     goods_detail:[],
@@ -257,7 +307,9 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    this.setData({
+    if(this.data.goods_id)
+    {
+      this.setData({
       goods_id:"",
       goods_detail:[],
       add_img_succsed:"none",
@@ -269,6 +321,8 @@ Page({
       sell_id:"",
       user_id:"a",
     })
+    }
+    
   },
 
   /**
