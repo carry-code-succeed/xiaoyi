@@ -46,11 +46,11 @@ Page({
   
   upload(){
     let that=this;
-    /*
+    
     const filePath=this.data.tempFilePaths;
     var timestamp = Date.parse(new Date());
     const cloudPath=timestamp+filePath.match(/\.[^.]+?$/)[0];
-    */
+    
    wx.showLoading({
     title: '加载中',
     mask:true
