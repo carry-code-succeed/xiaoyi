@@ -26,40 +26,40 @@ Page({
       key: 'user_id',
       success(res){
         wx.request({
-          url: 'https://www.campustransaction.xyz/Q_M/A_P_Q/',
+          url: 'https://www.campustransaction.xyz/U_M/S_H/',
           data:{
-            User_id:res.data
+            USER_ID:res.data
           },
           success(res){
             console.log(res);
-            that.setData({
-              goodslist:res.data
-            })     
-            for(var i in that.data.goodslist){
-              var state
-              if(that.data.goodslist[i].IS_PUTAWAY=="Under_the_shelf"){
-                state="已下架"
-                let updateVal = that.data.goodslist[i].IS_PUTAWAY;
-                //goodslist[i].IS_PUTAWAY=state
-                var up = "goodslist[" + i + "].IS_PUTAWAY";
-                that.setData({
-                  goodslist:that.data.goodslist,
-                  i:i,
-                  [up]:state
-                })
-              }
-              else{
-                state="上架中"
-                let updateVal = that.data.goodslist[i].IS_PUTAWAY;
-                //goodslist[i].IS_PUTAWAY=state
-                var up = "goodslist[" + i + "].IS_PUTAWAY";
-                that.setData({
-                  goodslist:that.data.goodslist,
-                  i:i,
-                  [up]:state
-                })
-              }
-            }
+            // that.setData({
+            //   goodslist:res.data
+            // })     
+            // for(var i in that.data.goodslist){
+            //   var state
+            //   if(that.data.goodslist[i].IS_PUTAWAY=="Under_the_shelf"){
+            //     state="已下架"
+            //     let updateVal = that.data.goodslist[i].IS_PUTAWAY;
+            //     //goodslist[i].IS_PUTAWAY=state
+            //     var up = "goodslist[" + i + "].IS_PUTAWAY";
+            //     that.setData({
+            //       goodslist:that.data.goodslist,
+            //       i:i,
+            //       [up]:state
+            //     })
+            //   }
+            //   else{
+            //     state="上架中"
+            //     let updateVal = that.data.goodslist[i].IS_PUTAWAY;
+            //     //goodslist[i].IS_PUTAWAY=state
+            //     var up = "goodslist[" + i + "].IS_PUTAWAY";
+            //     that.setData({
+            //       goodslist:that.data.goodslist,
+            //       i:i,
+            //       [up]:state
+            //     })
+            //   }
+            // }
           }
         })
       }

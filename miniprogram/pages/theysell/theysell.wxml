@@ -36,7 +36,7 @@
 <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
   <!--drawer content-->
   <view class="drawer_content">
-    <view class="drawer_title line">昵称：</view>
+    <view class="drawer_title line">昵称：<input placeholder="{{a}}" bindinput="change1" value="{{message.USER_NAME}}"></input></view>
     <view class="drawer_title line">性别：</view>
     <view class="drawer_title line">专业：</view>
     <view class="drawer_title line">年级：</view>

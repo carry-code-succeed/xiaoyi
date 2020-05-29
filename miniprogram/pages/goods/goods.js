@@ -9,7 +9,6 @@ Page({
         Commodity_id:goods_id
       },
       success(res){
-        console.log(res);
         that.setData({
           goods_detail:res.data,
           sell_id:res.data[0].USER_ID
@@ -49,6 +48,18 @@ Page({
         console.log(res.data)
         that.setData({
           user_id:res.data,
+        })
+        console.log(that.data.user_id)
+        wx.request({
+          url: 'https://www.campustransaction.xyz/U_M/A_H/',
+          data:{
+            USER_ID:that.data.user_id,
+            // COMMODITY_ID:goods_id,
+            COMMODITY_ID:'20200510181135',
+          },
+          success(res1){
+            console.log(res1)
+          }
         })
       }
     })

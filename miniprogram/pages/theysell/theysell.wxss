@@ -155,3 +155,9 @@ image{
 .line{
   border-bottom: 1px solid #f8f8f8;
 }
+
+.drawer_title input{
+  float: right;
+  color: gray;
+  font-size: 35rpx;
+}

@@ -1,5 +1,11 @@
 
 Page({
+  change1(e){
+    console.log(e.detail.value)
+    this.setData({
+      USER_NAME:e.detail.value
+    })
+  },
 
   async my_ongoods(){
    let that=this
@@ -20,6 +26,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    a:"无",
+    message:"",
     seller_id:"",
     seller_info:[],
     goodslist:[],
@@ -51,6 +59,18 @@ Page({
       },
       fail(res){
         console.log(res)
+      }
+    })
+
+    wx.request({
+      url: 'https://www.campustransaction.xyz/Q_M/U_I_Q/',
+      data:{
+        User_id:that.data.seller_id,
+      },
+      success(res1){
+        that.setData({
+          message:res1.data[0],
+        })
       }
     })
   },
