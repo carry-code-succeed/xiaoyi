@@ -74,6 +74,12 @@
 					"pathName": "pages/theysell/theysell",
 					"query": "sell_id=456987",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/theysell/theysell",
+					"pathName": "pages/theysell/theysell",
+					"scene": null
 				}
 			]
 		}
