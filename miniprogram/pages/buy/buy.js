@@ -27,13 +27,17 @@ Page({
         that.setData({
           goodslist:res.data,
         })
-        that.setData({
-          // goodslist2:res.data[2].goods,
-          goodslist2:[...that.data.goodslist2,...res.data[2].goods],
-        })
-        
-        
-        
+        if(res.data[0].result=="没找到商品！"){
+          that.setData({
+            nogoods:true,
+          })
+        }
+        else{
+          that.setData({
+            // goodslist2:res.data[2].goods,
+            goodslist2:[...that.data.goodslist2,...res.data[2].goods],
+          })
+        }
       }
     })
     //const total=res.data.message.total;
@@ -206,6 +210,7 @@ Page({
     goodslist2:[],
     search_word:"",
     user_id:"",
+    nogoods:"",
   },
 
   /**
@@ -233,6 +238,7 @@ Page({
     //重置数组
     this.setData({
       //goodsList:[],
+      nogoods:false,
       goodslist:[],
       goodslist2:[]
     })

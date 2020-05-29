@@ -52,6 +52,12 @@ image{
   justify-content: center;
   align-items: center;
 }
+.nogoods{
+  height: 958rpx;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
 .item_img image{
   width: 100%;
   justify-content: center;
