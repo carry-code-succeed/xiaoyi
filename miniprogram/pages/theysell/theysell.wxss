@@ -4,13 +4,13 @@ image{
 }
 .info{
   background-color: rgb(2, 125, 213);
-  height: 390rpx;
+  height: 250rpx;
 }
 
 .box1{
   background-color: white;
   margin-top: 120rpx;
-  height: 280rpx;
+  height: 200rpx;
   font-size: 40rpx;
   border-top-left-radius: 8%;
   border-top-right-radius: 8%;
@@ -18,7 +18,8 @@ image{
 
 .sellname{
   width: 100%;
-  height: 100rpx;
+  height: 40rpx;
+  font-size: 40rpx;
   text-align: center;
 }
 
@@ -48,23 +49,27 @@ image{
   width: 40%;
   float: left;
   height: 350rpx;
-  margin-left: 50rpx;
-  margin-top: 30rpx;
-  display: block;
+  margin-left: 49rpx;/*完美的距离测试是49rpx，如果加上border边框，就相对应的减去x rpx即可*/
+  margin-top: 25rpx;
+  margin-bottom: 15rpx;
+  border-radius: 5%;
 }
 .item_box{
-  
+  border-radius: 5%;
+  background-color: white;
 }
 .item_img{
   width: 100%;
   justify-content: center;
   align-items: center;
+  border-radius: 5% 5% 0 0;
 }
 .item_img image{
   width: 100%;
   justify-content: center;
+  border-radius: 5% 5% 0 0;
   align-items: center;
-  
+  border-bottom:1rpx #DDDDDD solid;
 }
 .item_info{
   float: none;
@@ -108,56 +113,4 @@ image{
 .box2 text{
   top: 0;
   left: 320rpx;
-}
-/*卖家详情*/
-.btn {
-  width: 100%;
-  padding: 20rpx 0;
-  border-radius: 10rpx;
-  text-align: center;
-  font-size: 40rpx;
-  margin: 10rpx 0;
-  background: rgb(50, 125, 207);
-  color: #fff;
-}
-/*mask点击后的背景样式*/
-.drawer_screen {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  background: rgb(112, 111, 111);
-  opacity: 0.2;
-  overflow: hidden;
-}
-/*content抽屉栏设置*/
-.drawer_attr_box {
-  width: 100%;
-  overflow: hidden;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 1001;
-  background: #fff;
-}
-.drawer_content {
-  padding: 20rpx 40rpx;
-  height: 470rpx;
-  overflow-y: scroll;
-}
-.drawer_title{
-  padding:20rpx;
-  font:42rpx "microsoft yahei";
-  text-align: left;
-}
-.line{
-  border-bottom: 1px solid #f8f8f8;
-}
-
-.drawer_title input{
-  float: right;
-  color: gray;
-  font-size: 35rpx;
 }

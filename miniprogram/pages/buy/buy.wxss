@@ -42,37 +42,40 @@ image{
   width: 40%;
   float: left;
   height: 350rpx;
-  margin-left: 50rpx;
+  margin-left: 49rpx;/*完美的距离测试是49rpx，如果加上border边框，就相对应的减去x rpx即可*/
+  margin-top: 25rpx;
+  margin-bottom: 15rpx;
+  border-radius: 5%;
 }
 .item_box{
-  
+  border-radius: 5%;
+  background-color: white;
 }
 .item_img{
   width: 100%;
   justify-content: center;
   align-items: center;
-}
-.nogoods{
-  height: 958rpx;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
+  border-radius: 5% 5% 0 0;
 }
 .item_img image{
   width: 100%;
   justify-content: center;
+  border-radius: 5% 5% 0 0;
   align-items: center;
-  
+  border-bottom:1rpx #DDDDDD solid;
 }
 .item_info{
   float: none;
   width: 100%;
 }
 .item_name{
-  
+  margin-left: 25rpx;
+  font-size: 35rpx;
 }
 
 .item_price{
   color: red;
+  margin-left: 10rpx;
   margin-top: 20rpx;
+  font-size: 40rpx;
 }

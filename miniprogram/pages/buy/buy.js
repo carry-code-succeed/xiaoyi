@@ -21,23 +21,18 @@ Page({
         Commodity_name:Commodity_name,
       },
       success(res){
-        console.log(res)
         // that.QueryParams2.pagination=Math.ceil(res.data[0].total/that.QueryParams2.capacity)
         // console.log(that.QueryParams2.pagination)
         that.setData({
           goodslist:res.data,
         })
-        if(res.data[0].result=="没找到商品！"){
-          that.setData({
-            nogoods:true,
-          })
-        }
-        else{
-          that.setData({
-            // goodslist2:res.data[2].goods,
-            goodslist2:[...that.data.goodslist2,...res.data[2].goods],
-          })
-        }
+        that.setData({
+          // goodslist2:res.data[2].goods,
+          goodslist2:[...that.data.goodslist2,...res.data[2].goods],
+        })
+        
+        
+        
       }
     })
     //const total=res.data.message.total;
@@ -209,18 +204,19 @@ Page({
     goodslist:[],
     goodslist2:[],
     search_word:"",
-    user_id:"",
-    nogoods:"",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    console.log(options);
     if(options.search_word!=undefined)
     { console.log("关键词为"+options.search_word);
       this.QueryParams2.Commodity_name=options.search_word
       console.log(this.QueryParams2.Commodity_name);
+      
       this.setData({
       search_word:options.search_word
     })
@@ -238,7 +234,6 @@ Page({
     //重置数组
     this.setData({
       //goodsList:[],
-      nogoods:false,
       goodslist:[],
       goodslist2:[]
     })
@@ -290,7 +285,6 @@ Page({
     }
   
   },
-
 
   /**
    * 用户点击右上角分享

@@ -1,7 +1,7 @@
 <view class="info">
   <view class="box1">
   <text class="sellname">{{seller_info[0].USER_NAME}}</text>
-    <view class="tou" >
+    <view class="tou">
       <image src="https://ae01.alicdn.com/kf/H4b60606a4dd842808a30d2986f131908J.jpg"></image>
     </view >
     <view class="box2">
@@ -10,7 +10,7 @@
     
   </view>
 </view>
-<view>
+<view style="background-color:#EEEEEE">
   <navigator class="item"
       wx:for="{{goodslist}}"
       wx:key="COMMODITY_ID"
@@ -26,20 +26,4 @@
           </view>
         </view>
       </navigator>
-</view>
-<!--button-->
-<view class="btn" bindtap="powerDrawer" data-statu="open">卖家详细信息</view>
-<!--mask-->
-<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
-<!--content-->
-<!--使用animation属性指定需要执行的动画-->
-<view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
-  <!--drawer content-->
-  <view class="drawer_content">
-    <view class="drawer_title line">昵称：<input placeholder="{{a}}" bindinput="change1" value="{{message.USER_NAME}}"></input></view>
-    <view class="drawer_title line">性别：</view>
-    <view class="drawer_title line">专业：</view>
-    <view class="drawer_title line">年级：</view>
-    <view class="drawer_title">QQ号：</view>
-  </view>
 </view>
